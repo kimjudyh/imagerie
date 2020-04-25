@@ -1,6 +1,7 @@
 // ======== IMPORTS
 const express = require('express');
 const router = express.Router();
+const bcrypt = require('bcryptjs');
 
 // ======== MODELS
 const db = require('../models');
@@ -25,10 +26,18 @@ router.post('/register', async (req, res) => {
       return res.send('Account already exists, please login');
     }
     // TODO: hash password
+    // generate salt (adds complication to our password hash)
+    const salt = bcrypt.genSaltSync(10);
+    // hash password- takes 2 params: password to hash, salt
+    const hash = bcrypt.hashSync(req.body.password, salt);
+
+    // creating an object with username, email, hashed password
     const userData = {
       username: req.body.username,
       email: req.body.email,
+      password: hash,
     };
+
     // else, create user in database
     const newUser = await db.User.create(userData);
     // then, redirect to login page
