@@ -2,7 +2,7 @@
 const mongoose = require('mongoose');
 const connectionString = 'mongodb://localhost:27017/project-one';
 const configOptions = {
-    useNewUrlParser: true,
+  useNewUrlParser: true,
   useCreateIndex: true,
   useUnifiedTopology: true,
   useFindAndModify: false
