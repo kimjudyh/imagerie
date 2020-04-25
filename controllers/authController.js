@@ -25,7 +25,8 @@ router.post('/register', async (req, res) => {
       // TODO: redirect to login with error message
       return res.send('Account already exists, please login');
     }
-    // TODO: hash password
+    // TODO: verify "password" and "confirm password" match
+
     // generate salt (adds complication to our password hash)
     const salt = bcrypt.genSaltSync(10);
     // hash password- takes 2 params: password to hash, salt
