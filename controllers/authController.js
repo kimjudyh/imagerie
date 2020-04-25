@@ -15,16 +15,17 @@ router.get('/register', (req, res) => {
 
 // POST create new User
 router.post('/register', async (req, res) => {
+  console.log('user body: ', req.body);
   try {
-// check if user already exists in db
+  // check if user already exists in db
     const user = await db.User.findOne({username: req.body.username});
     if (user) {
       // user comes back as truthy, account exists
       // TODO: redirect to login with error message
-      res.send('Account already exists, please login');
+      return res.send('Account already exists, please login');
     }
     // TODO: hash password
-    const UserData = {
+    const userData = {
       username: req.body.username,
       email: req.body.email,
     };
@@ -38,6 +39,11 @@ router.post('/register', async (req, res) => {
 });
 
 // GET new login
+router.get('/login', (req, res) => {
+  res.render('auth/login', {
+    title: 'Login',
+  });
+});
 
 // POST create new session
 
