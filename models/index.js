@@ -18,8 +18,8 @@ mongoose.connect(connectionString, configOptions)
   })
 
 // ======== EXPORTS
-//module.exports = {
-//  User = require('./User'),
-//  Album = require('./Album'),
-//  Photo = require('./Photo'),
-//};
+module.exports = {
+  User: require('./User'),
+//  Album:  require('./Album'),
+//  Photo: require('./Photo'),
+};
