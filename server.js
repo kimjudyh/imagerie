@@ -7,6 +7,7 @@ const port = process.env.PORT || 4000;
 app.set('view engine', 'ejs');
 
 // ======= CONTROLLERS
+const authController = require('./controllers/authController');
 
 // ======= MIDDLEWARE
 
@@ -14,6 +15,13 @@ app.set('view engine', 'ejs');
 app.get('/', (req, res) => {
   res.send('<h1>Photo Gallery Homepage</h1>')
 })
+
+// Auth/User routes
+app.use('/auth', authController);
+
+// Album routes
+
+// Photo Routes
 
 // ======= SERVER LISTENER
 app.listen(port, () => {
