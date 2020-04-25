@@ -25,7 +25,8 @@ router.post('/register', async (req, res) => {
       // TODO: redirect to login with error message
       return res.send('Account already exists, please login');
     }
-    // TODO: hash password
+    // TODO: verify "password" and "confirm password" match
+
     // generate salt (adds complication to our password hash)
     const salt = bcrypt.genSaltSync(10);
     // hash password- takes 2 params: password to hash, salt
@@ -55,6 +56,46 @@ router.get('/login', (req, res) => {
 });
 
 // POST create new session
+router.post('/login', async (req, res) => {
+  try {
+  // check for existing user account
+  console.log(req.body);
+  const user = await db.User.findOne({username: req.body.username});
+  console.log(user);
+
+  // user doesn't exist
+  if (!user) {
+    // send back to login page
+    return res.render('auth/login', {
+      title: 'Login',
+      error: 'Invalid Credentials',
+    })
+  }
+
+  // verify found user and password sent from login matches db 
+  const passwordsMatch = bcrypt.compareSync(req.body.password, user.password);
+  if (!passwordsMatch) {
+    // wrong password, send back to login page
+    return res.render('auth/login', {
+      title: 'Login',
+      error: 'Invalid Credentials',
+    });
+  }
+  // if passwords match, create new session, redirect to profile page
+  console.log('user confirmed');
+  console.log('session: ', req.session);
+  // attach currentUser property to cookie
+  req.session.currentUser = user._id;
+
+  console.log('user added: ', req.session);
+
+  // TODO: redirect to profile page
+  res.send('logged in');
+
+  } catch (err) {
+    res.send(err);
+  }
+});
 
 // GET logout destroy session
 
