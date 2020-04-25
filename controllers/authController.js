@@ -98,8 +98,18 @@ router.post('/login', async (req, res) => {
 });
 
 // GET logout destroy session
+router.get('/logout', async (req, res) => {
+  // TODO: first check if user is logged in
+  try {
+    await req.session.destroy();
+    console.log('session destroyed:', req.session);
+    res.redirect('/auth/login');
+    
 
-
+  } catch (err) {
+    res.send(err);
+  }
+});
 
 // ======== EXPORTS
 module.exports = router;
