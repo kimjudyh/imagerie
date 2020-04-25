@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const AlbumSchema = new mongoose.Schema({
-    albumname: {
+    albumName: {
         type: String,
         unique: true,
         required: true,
