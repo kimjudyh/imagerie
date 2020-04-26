@@ -1,0 +1,28 @@
+<%- include('../partials/_head') %>
+    <main>
+        <h1>Edit Photo</h1>
+        <div>
+            <form action="/photos/<%= photo._id%>?method=PUT" method="POST">
+                <div>
+                    <label for="url">Url: </label>
+                    <input type="text" id="url" name="url" required value="<%= photo.url%>">
+                </div>
+                <div>
+                    <label for="date">Date: </label>
+                    <input type="date" id="date" name="date" required value="<%= photo.date %>">
+                </div>
+                <div>
+                    <label for="location">Location: </label>
+                    <input type="text" id="location" name="location" required value="<%= photo.location %>">
+                </div>
+                <div>
+                    <label for="description">Description: </label>
+                    <textarea name="description" id="description" cols="30" rows="10" required>
+                    <%= photo.description %> 
+                </textarea>
+                </div>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </main>
+    <%- include('../partials/_footer') %>
