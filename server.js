@@ -13,33 +13,34 @@ app.set('view engine', 'ejs');
 
 // ======= CONTROLLERS
 const authController = require('./controllers/authController');
+const albumcontroller = require('./controllers/albumsController');
 
 // ======= MIDDLEWARE
-app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(methodOverride('_method'));
 // TODO sett up session
 app.use(session({
-  secret: 'xo4SO*U#;ljxliha987DKJEI',
-  resave: false, // only save session if set or mutate property on session object
-  saveUninitialized: false, // only save a cookie when we set a property
+    secret: 'xo4SO*U#;ljxliha987DKJEI',
+    resave: false, // only save session if set or mutate property on session object
+    saveUninitialized: false, // only save a cookie when we set a property
 }));
 
 // ======= ROUTES
 app.get('/', (req, res) => {
-  res.render('index', {
-    title: 'Homepage',
-  });
+    res.render('index', {
+        title: 'Homepage',
+    });
 })
 
 // Auth/User routes
 app.use('/auth', authController);
 
 // Album routes
-
-// Photo Routes
+app.use('/albums', albumcontroller)
+    // Photo Routes
 
 // ======= SERVER LISTENER
 app.listen(port, () => {
-  console.log('Server running on port', port);
+    console.log('Server running on port', port);
 })
