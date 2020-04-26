@@ -11,9 +11,9 @@
   </div>
   <!--Show Photo thumbnails-->
   <div>
-    <p>
-      photos go here
-    </p>
+    <% albumPhotos.forEach((albumPhoto) => { %>
+      <img src="<%= albumPhoto.url %>" alt=""> 
+    <% }) %>
   </div>
   <!--Delete Album-->
   <div>

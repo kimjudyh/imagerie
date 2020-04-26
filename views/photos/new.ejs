@@ -3,14 +3,14 @@
     <h1>Add a New Photo</h1>
     <div>
         <!--New Inputs-->
-        <form action="/photos" method="POST">
+        <form action="/albums/<%= albumId %>/photos" method="POST">
             <div>
                 <label for="url">Url: </label>
                 <input type="text" id="url" name="url" required>
             </div>
             <div>
                 <label for="date">Date: </label>
-                <input type="date" id="date" name="date" required>
+                <input type="date" id="date" name="date" >
             </div>
             <div>
                 <label for="location">Location: </label>
