@@ -5,12 +5,12 @@ const mongoose = require('mongoose');
 const PhotoSchema = new mongoose.Schema({
     url: {
         type: String,
-        unique: true,
+        //unique: true,
         required: true,
     },
     date: {
         type: Date,
-        required: true,
+        //required: true,
     },
     location: {
         type: String,
