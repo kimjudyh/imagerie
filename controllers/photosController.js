@@ -23,22 +23,33 @@ router.get('/', async (req, res) => {
 });
 
 // GET new Photo
-router.get('/new', async (req, res) => {
+router.get('/:albumid/photos/new', async (req, res) => {
   // send to new photo view
   res.render('photos/new', {
     title: 'New Photo',
+    albumId: req.params.albumid,
   });
 });
 
 // POST create Photo
-router.post('/', async (req, res) => {
+router.post('/:albumid/photos', async (req, res) => {
   try {
     // make new photo in db
-    // TODO: link album id, user id
-    console.log('new photo, ', req.body);
+    console.log('req.body from form, ', req.body);
     const newPhoto = await db.Photo.create(req.body);
-    // TODO: redirect to album edit or create page (how??)
-    res.redirect('/photos');
+    console.log('new photo object', newPhoto);
+    // add album id to Photo model
+    newPhoto.album = req.params.albumid;
+    const savedPhoto = await newPhoto.save();
+    console.log('saved photo', savedPhoto);
+    // add photo id to Album photo id array 
+    // unnecessary??
+    const foundAlbum = await db.Album.findById(req.params.albumid);
+    foundAlbum.photos.push(savedPhoto._id);
+    console.log('album photo id array', foundAlbum.photos);
+    const savedAlbum = await foundAlbum.save();
+    // redirect back to album edit view
+    res.redirect(`/albums/${req.params.albumid}/edit`);
 
   } catch (err) {
     res.send(err);
