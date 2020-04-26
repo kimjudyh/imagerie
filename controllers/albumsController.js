@@ -44,8 +44,23 @@ router.get('/:id', async(req, res) => {
             title: 'Show',
         });
     } catch (err) {
+
         return res.send(err)
     }
 });
+
+// get albums edit
+router.get('/:id', async(req, res) => {
+    try {
+        const foundAlbum = await db.Album.findById(req.params.id);
+        res.render('albums/edit', {
+            album: foundAlbum,
+            title: 'Edit',
+        })
+    } catch (err) {
+        return res.send(err)
+    }
+});
+
 
 module.exports = router;
