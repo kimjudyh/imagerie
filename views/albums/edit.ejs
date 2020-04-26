@@ -29,17 +29,17 @@
     </div>
     <!--Create New Photo-->
     <div>
-      <a href="/photos/new">Add New Photo</a>
+      <a href="/albums/<%= album._id %>/photos/new">Add New Photo</a>
     </div>
+    <!--Submit Changes-->
+    <button type="submit">Submit</button>
+    </form>
     <!--Delete Album-->
     <div>
       <form action="/albums/<%= album._id %>?_method=DELETE" method="POST">
         <button type="submit">Delete Album</button>
       </form>
     </div>
-    <!--Submit Changes-->
-    <button type="submit">Submit</button>
-    </form>
     <!--TODO: cancel button-->
     </div>
 </main>
