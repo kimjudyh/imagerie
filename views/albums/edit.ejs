@@ -16,7 +16,7 @@
     <div>
       <label for="date">Date: </label>
       <input type="date" id="date" name="date"
-      value="<%= album.date.toLocaleDateString() %>">
+      value="<%= album.date.toString() %>">
     </div>
     <div>
       <label for="location">Location: </label>
@@ -25,8 +25,7 @@
     </div>
     <div>
       <label for="description">Description: </label>
-      <textarea name="description" id="description" cols="30" rows="10" 
-      value="<%= album.description %>"></textarea>
+      <textarea name="description" id="description" cols="30" rows="10"><%= album.description %></textarea>
     </div>
     <button type="submit">Submit</button>
     </form>
