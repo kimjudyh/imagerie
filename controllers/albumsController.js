@@ -8,9 +8,9 @@ const db = require('../models');
 // get alnum index
 router.get('/', async(req, res) => {
     try {
-        const foundAlbum = await db.Album.find();
+        const allAlbums = await db.Album.find();
         res.render('albums/index', {
-            album: foundAlbum,
+            album: allAlbums,
             title: "Albums",
         })
     } catch (err) {
