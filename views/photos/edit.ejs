@@ -9,7 +9,7 @@
                 </div>
                 <div>
                     <label for="date">Date: </label>
-                    <input type="date" id="date" name="date" required value="<%= photoDateString %>">
+                    <input type="date" id="date" name="date"  value="<%= photoDateString %>">
                 </div>
                 <div>
                     <label for="location">Location: </label>
@@ -17,8 +17,7 @@
                 </div>
                 <div>
                     <label for="description">Description: </label>
-                    <textarea name="description" id="description" cols="30" rows="10" required><%= photo.description %> 
-                </textarea>
+                    <textarea name="description" id="description" cols="30" rows="10" required><%= photo.description %></textarea>
                 </div>
                 <button type="submit">Submit</button>
             </form>
