@@ -25,7 +25,7 @@ router.get('/', async (req, res) => {
 // GET new Photo
 router.get('/new', async (req, res) => {
   // send to new photo view
-  res.render('photo/new', {
+  res.render('photos/new', {
     title: 'New Photo',
   });
 });
