@@ -8,7 +8,10 @@ const db = require('../models');
 // get album index
 router.get('/', async(req, res) => {
     try {
-        const allAlbums = await db.Album.find();
+      // TODO: filter by user id
+      console.log('cookie', req.session.currentUser)
+      const allAlbums = await db.Album.find({user: req.session.currentUser});
+      //  const allAlbums = await db.Album.find();
         res.render('albums/index', {
             albums: allAlbums,
             title: "Albums",
@@ -28,7 +31,11 @@ router.get('/new', (req, res) => {
 // post albums create
 router.post('/', async(req, res) => {
     try {
+      // assign user in cookie to album
         const createAlbum = await db.Album.create(req.body);
+        createAlbum.user = req.session.currentUser;
+        const savedAlbum = await createAlbum.save();
+        console.log('saved album: ', savedAlbum);
         res.redirect('/albums')
     } catch (err) {
         return res.send(err)
