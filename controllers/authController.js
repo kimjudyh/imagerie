@@ -16,7 +16,6 @@ router.get('/register', (req, res) => {
 
 // POST create new User
 router.post('/register', async (req, res) => {
-  console.log('user body: ', req.body);
   try {
   // check if user already exists in db
     const user = await db.User.findOne({username: req.body.username});
@@ -90,7 +89,8 @@ router.post('/login', async (req, res) => {
   console.log('user added: ', req.session);
 
   // TODO: redirect to profile page
-  res.send('logged in');
+  res.redirect('/albums');
+  //res.send('logged in');
 
   } catch (err) {
     res.send(err);
