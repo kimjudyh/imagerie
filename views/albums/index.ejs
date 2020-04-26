@@ -1,0 +1,17 @@
+<%- include('../partials/_head') %>
+<main>
+  <h1>User Profile Page</h1>
+<a href="/albums/new">Add a New Album</a>
+
+<div>
+  <% albums.forEach((album) => { %>
+    <div>
+      <%= album.albumName %>
+      <a href="/albums/<%= album._id %>">View this album</a>
+    </div>
+  <% }) %>
+</div>
+
+</main>
+
+<%- include('../partials/_footer') %>
