@@ -2,12 +2,20 @@
 <main>
   <div>
     <h1>Album View</h1>
-    <h4>Date: <%= album.date %></h4>
+    <a href="/albums/<%= album._id %>/edit">Edit Album</a>
+    <h4>Date: <%= album.date.toLocaleDateString() %></h4>
     <h4>Location: <%= album.location %></h4>
     <p><%= album.description %></p>
   </div>
   <div>
-    photos go here
+    <p>
+      photos go here
+    </p>
+  </div>
+  <div>
+    <form action="/albums?_method=DELETE" method="POST">
+      <button type="submit">Delete Album</button>
+    </form>
   </div>
 
 </main>

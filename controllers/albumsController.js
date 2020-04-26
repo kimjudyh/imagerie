@@ -50,7 +50,7 @@ router.get('/:id', async(req, res) => {
 });
 
 // get albums edit
-router.get('/:id', async(req, res) => {
+router.get('/:id/edit', async(req, res) => {
     try {
         const foundAlbum = await db.Album.findById(req.params.id);
         res.render('albums/edit', {
