@@ -8,9 +8,11 @@ const db = require('../models');
 // get album index
 router.get('/', async(req, res) => {
     try {
-      // TODO: filter by user id
+      // filter by user id
       console.log('cookie', req.session.currentUser)
+      // TODO: send to login page if currentUser is undefined
       const allAlbums = await db.Album.find({user: req.session.currentUser});
+      // TODO: populate user field w/ User object
       //  const allAlbums = await db.Album.find();
         res.render('albums/index', {
             albums: allAlbums,
