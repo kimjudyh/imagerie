@@ -27,7 +27,9 @@ app.use(session({
 
 // ======= ROUTES
 app.get('/', (req, res) => {
-  res.send('<h1>Photo Gallery Homepage</h1>')
+  res.render('index', {
+    title: 'Homepage',
+  });
 })
 
 // Auth/User routes
