@@ -1,6 +1,9 @@
 const express = require('express');
 const router = express.Router();
 
+// photos controller
+const photosController = require('./photosController');
+
 // Database
 const db = require('../models');
 
@@ -47,10 +50,14 @@ router.post('/', async(req, res) => {
 // get albums show
 router.get('/:id', async(req, res) => {
     try {
-        const foundAlbum = await db.Album.findById(req.params.id);
-        res.render('albums/show', {
-            album: foundAlbum,
-            title: 'Show',
+      // get specific album
+      const foundAlbum = await db.Album.findById(req.params.id);
+      // get all photos with this album id
+      const albumPhotos = await db.Photo.find({album: req.params.id});
+      res.render('albums/show', {
+          album: foundAlbum,
+          albumPhotos: albumPhotos,
+          title: 'Show',
         });
     } catch (err) {
 
@@ -97,5 +104,8 @@ router.delete('/:id', async(req, res) => {
         return res.send(err);
     }
 });
+
+// ------ Photos Routes
+router.use('/', photosController);
 
 module.exports = router;
