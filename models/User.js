@@ -18,6 +18,10 @@ const UserSchema = new mongoose.Schema({
     password: {
         type: String,
     },
+    albums: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Album',
+    }],
 }, { timestamps: true });
 
 // ========== CREATE MODEL
