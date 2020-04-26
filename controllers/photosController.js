@@ -21,16 +21,17 @@ router.get('/', async (req, res) => {
     res.send(err)
   }
 });
+
 // GET new Photo
 router.get('/new', async (req, res) => {
   // send to new photo view
-  res.render('photo/new', {
+  res.render('photos/new', {
     title: 'New Photo',
   });
 });
 
 // POST create Photo
-router.get('/', async (req, res) => {
+router.post('/', async (req, res) => {
   try {
     // make new photo in db
     // TODO: link album id, user id
@@ -60,10 +61,36 @@ router.get('/:id', async (req, res) => {
 });
 
 // GET edit Photo
+router.get('/:id/edit', async (req, res) => {
+  try {
+    // get specific photo from db
+    const foundPhoto = await db.Photo.findById(req.params.id);
+    res.render('photos/edit', {
+      title: 'Edit Photo',
+      photo: foundPhoto,
+    });
+
+  } catch (err) {
+    res.send(err);
+  }
+});
 
 // PUT update Photo
+router.put('/:id', async (req, res) => {
+
+})
 
 // DELETE destroy Photo
+router.delete('/:id', async (req, res) => {
+  try {
+    const deletedPhoto = await db.Photo.findByIdAndDelete(req.params.id);
+    // TODO: redirect to album that photo was in
+    res.redirect('/photos');
+
+  } catch (err) {
+    res.send(err);
+  }
+})
 
 // ======== EXPORT
 module.exports = router;
