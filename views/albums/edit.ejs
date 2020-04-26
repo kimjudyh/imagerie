@@ -2,33 +2,45 @@
 <main>
   <h1>Edit Album</h1>
   <div>
-    <form action="/albums/<%= album._id %>?_method=DELETE" method="POST">
-      <button type="submit">Delete Album</button>
-    </form>
-  </div>
-  <div>
+    <!--Edit Inputs-->
     <form action="/albums/<%= album._id %>?_method=PUT" method="POST">
     <div>
       <label for="albumName">Album Name: </label>
+      <br/>
       <input type="text" id="albumName" name="albumName" 
       value="<%= album.albumName %>" required>
     </div>
     <div>
       <label for="date">Date: </label>
+      <br/>
       <input type="date" id="date" name="date"
       value="<%= albumDateString %>" required>
     </div>
     <div>
       <label for="location">Location: </label>
+      <br/>
       <input type="text" id="location" name="location"
       value="<%= album.location %>" required>
     </div>
     <div>
       <label for="description">Description: </label>
+      <br/>
       <textarea name="description" id="description" cols="30" rows="10" required><%= album.description %></textarea>
     </div>
+    <!--Create New Photo-->
+    <div>
+      <a href="/photos/new">Add New Photo</a>
+    </div>
+    <!--Delete Album-->
+    <div>
+      <form action="/albums/<%= album._id %>?_method=DELETE" method="POST">
+        <button type="submit">Delete Album</button>
+      </form>
+    </div>
+    <!--Submit Changes-->
     <button type="submit">Submit</button>
     </form>
-  </div>
+    <!--TODO: cancel button-->
+    </div>
 </main>
 <%- include('../partials/_footer') %>

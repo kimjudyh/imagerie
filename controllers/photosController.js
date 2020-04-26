@@ -66,9 +66,16 @@ router.get('/:id/edit', async (req, res) => {
   try {
     // get specific photo from db
     const foundPhoto = await db.Photo.findById(req.params.id);
+    // format date to match input type="date": yyyy-mm-dd
+    console.log('photo.date: ', foundPhoto.date);
+    console.log('ISO date', foundPhoto.date.toISOString())
+    console.log('photo toLocale string', foundPhoto.date.toLocaleDateString())
+    const photoDateString = foundPhoto.date.toISOString().slice(0, 10);
+
     res.render('photos/edit', {
       title: 'Edit Photo',
       photo: foundPhoto,
+      photoDateString: photoDateString,
     });
 
   } catch (err) {

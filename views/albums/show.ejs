@@ -2,21 +2,24 @@
 <main>
   <div>
     <h1>Album View</h1>
+    <!--Edit Album Link-->
     <a href="/albums/<%= album._id %>/edit">Edit Album</a>
+    <!--Album Properties-->
     <h4>Date: <%= album.date.toLocaleDateString() %></h4>
     <h4>Location: <%= album.location %></h4>
     <p><%= album.description %></p>
   </div>
+  <!--Show Photo thumbnails-->
   <div>
     <p>
       photos go here
     </p>
   </div>
+  <!--Delete Album-->
   <div>
     <form action="/albums/<%= album._id %>?_method=DELETE" method="POST">
       <button type="submit">Delete Album</button>
     </form>
   </div>
-
 </main>
 <%- include('../partials/_footer') %>
