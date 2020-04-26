@@ -53,8 +53,12 @@ router.get('/:id', async(req, res) => {
 router.get('/:id/edit', async(req, res) => {
     try {
         const foundAlbum = await db.Album.findById(req.params.id);
+        // format date to match input type="date": yyyy-mm-dd
+        albumDateString = foundAlbum.date.toISOString().slice(0, 10);
+        console.log(albumDateString);
         res.render('albums/edit', {
             album: foundAlbum,
+            albumDateString: albumDateString,
             title: 'Edit',
         })
     } catch (err) {
