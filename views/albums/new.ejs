@@ -2,25 +2,36 @@
 <main>
   <h1>Add a New Album</h1>
   <div>
+    <!--New Inputs-->
     <form action="/albums" method="POST">
     <div>
       <label for="albumName">Album Name: </label>
+      <br/>
       <input type="text" id="albumName" name="albumName" required>
     </div>
     <div>
       <label for="date">Date: </label>
+      <br/>
       <input type="date" id="date" name="date" required>
     </div>
     <div>
       <label for="location">Location: </label>
+      <br/>
       <input type="text" id="location" name="location" required>
     </div>
     <div>
       <label for="description">Description: </label>
+      <br/>
       <textarea name="description" id="description" cols="30" rows="10" required></textarea>
     </div>
+    <!--Create New Photo-->
+    <div>
+      <a href="/photos/new">Add New Photo</a>
+    </div>
+    <!--Submit-->
     <button type="submit">Submit</button>
     </form>
+    <!--TODO: cancel button-->
   </div>
 </main>
 <%- include('../partials/_footer') %>
