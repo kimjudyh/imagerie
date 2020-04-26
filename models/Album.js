@@ -1,4 +1,8 @@
+
+// ======== IMPORTS
 const mongoose = require('mongoose');
+
+// ======== SCHEMA
 const AlbumSchema = new mongoose.Schema({
     albumName: {
         type: String,
@@ -20,9 +24,15 @@ const AlbumSchema = new mongoose.Schema({
     user: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
-    }
-
+    },
+    photos: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Photo',
+    }],
 }, { timestamps: true });
 
+// ======= CREATE SCHEMA
 const Album = mongoose.model('Album', AlbumSchema);
+
+// ======= EXPORT
 module.exports = Album;
