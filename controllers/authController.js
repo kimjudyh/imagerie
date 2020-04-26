@@ -16,7 +16,6 @@ router.get('/register', (req, res) => {
 
 // POST create new User
 router.post('/register', async (req, res) => {
-  console.log('user body: ', req.body);
   try {
   // check if user already exists in db
     const user = await db.User.findOne({username: req.body.username});
