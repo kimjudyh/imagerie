@@ -14,12 +14,12 @@ app.set('view engine', 'ejs');
 // ======= CONTROLLERS
 const authController = require('./controllers/authController');
 const albumsController = require('./controllers/albumsController');
+const photosController = require('./controllers/photosController');
 
 // ======= MIDDLEWARE
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(methodOverride('_method'));
-// TODO sett up session
 app.use(session({
     secret: 'xo4SO*U#;ljxliha987DKJEI',
     resave: false, // only save session if set or mutate property on session object
@@ -37,8 +37,10 @@ app.get('/', (req, res) => {
 app.use('/auth', authController);
 
 // Album routes
-app.use('/albums', albumsController)
-    // Photo Routes
+app.use('/albums', albumsController);
+
+// Photo Routes
+app.use('/photos', photosController);
 
 // ======= SERVER LISTENER
 app.listen(port, () => {
