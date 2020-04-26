@@ -35,6 +35,7 @@ router.post('/', async (req, res) => {
   try {
     // make new photo in db
     // TODO: link album id, user id
+    console.log('new photo, ', req.body);
     const newPhoto = await db.Photo.create(req.body);
     // TODO: redirect to album edit or create page (how??)
     res.redirect('/photos');
@@ -77,8 +78,18 @@ router.get('/:id/edit', async (req, res) => {
 
 // PUT update Photo
 router.put('/:id', async (req, res) => {
+  try {
+    const updatedPhoto = await db.Photo.findByIdAndUpdate(
+      req.params.id,
+      req.body,
+      {new: true},
+    );
+    res.redirect(`/photos/${req.params.id}`);
 
-})
+  } catch (err) {
+    res.send(err);
+  }
+});
 
 // DELETE destroy Photo
 router.delete('/:id', async (req, res) => {
