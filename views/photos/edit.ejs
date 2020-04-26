@@ -2,14 +2,14 @@
     <main>
         <h1>Edit Photo</h1>
         <div>
-            <form action="/photos/<%= photo._id%>?method=PUT" method="POST">
+            <form action="/photos/<%= photo._id%>?_method=PUT" method="POST">
                 <div>
                     <label for="url">Url: </label>
                     <input type="text" id="url" name="url" required value="<%= photo.url%>">
                 </div>
                 <div>
                     <label for="date">Date: </label>
-                    <input type="date" id="date" name="date" required value="<%= photo.date %>">
+                    <input type="date" id="date" name="date" required value="<%= photoDateString %>">
                 </div>
                 <div>
                     <label for="location">Location: </label>
@@ -17,8 +17,7 @@
                 </div>
                 <div>
                     <label for="description">Description: </label>
-                    <textarea name="description" id="description" cols="30" rows="10" required>
-                    <%= photo.description %> 
+                    <textarea name="description" id="description" cols="30" rows="10" required><%= photo.description %> 
                 </textarea>
                 </div>
                 <button type="submit">Submit</button>
