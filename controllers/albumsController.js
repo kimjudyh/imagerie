@@ -44,6 +44,33 @@ router.get('/:id', async(req, res) => {
             title: 'Show',
         });
     } catch (err) {
+
+        return res.send(err)
+    }
+});
+
+// get albums edit
+router.get('/:id', async(req, res) => {
+    try {
+        const foundAlbum = await db.Album.findById(req.params.id);
+        res.render('albums/edit', {
+            album: foundAlbum,
+            title: 'Edit',
+        })
+    } catch (err) {
+        return res.send(err)
+    }
+});
+
+// get albums update
+router.put('/:id', async(req, res) => {
+    try {
+        const editAlbum = await db.Album.findByIdAndUpdate(
+            req.params.id,
+            req.body, { new: true }
+        );
+        res.redirect(`/albums/${req.params.id}`)
+    } catch (err) {
         return res.send(err)
     }
 });
