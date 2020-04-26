@@ -75,4 +75,14 @@ router.put('/:id', async(req, res) => {
     }
 });
 
+// delete albums
+router.delete('/:id', async(req, res) => {
+    try {
+        const deleteAlbum = await db.Album.findByIdAndDelete(req.params.id);
+        res.redirect('/albums');
+    } catch (err) {
+        return res.send(err);
+    }
+});
+
 module.exports = router;
