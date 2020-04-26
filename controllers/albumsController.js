@@ -10,10 +10,12 @@ router.get('/', async(req, res) => {
     try {
         const allAlbums = await db.Album.find();
         res.render('albums/index', {
-            album: allAlbums,
+            albums: allAlbums,
             title: "Albums",
         })
     } catch (err) {
         return res.send
     }
 });
+
+module.exports = router;

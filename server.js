@@ -13,7 +13,7 @@ app.set('view engine', 'ejs');
 
 // ======= CONTROLLERS
 const authController = require('./controllers/authController');
-const albumcontroller = require('./controllers/albumsController');
+const albumsController = require('./controllers/albumsController');
 
 // ======= MIDDLEWARE
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -37,7 +37,7 @@ app.get('/', (req, res) => {
 app.use('/auth', authController);
 
 // Album routes
-app.use('/albums', albumcontroller)
+app.use('/albums', albumsController)
     // Photo Routes
 
 // ======= SERVER LISTENER
