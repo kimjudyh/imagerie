@@ -17,3 +17,10 @@ router.get('/', async(req, res) => {
         return res.send
     }
 });
+
+// get new 
+router.get('/new', (req, res) => {
+    res.render('albums/new', {
+        title: 'Create',
+    })
+});
