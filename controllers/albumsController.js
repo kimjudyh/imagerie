@@ -14,13 +14,18 @@ router.get('/', async(req, res) => {
       // filter by user id
       console.log('cookie', req.session.currentUser)
       // TODO: send to login page if currentUser is undefined
+      if (!req.session.currentUser) {
+        return res.redirect('/auth/login');
+      }
       const allAlbums = await db.Album.find({user: req.session.currentUser});
       // TODO: populate user field w/ User object
-      //  const allAlbums = await db.Album.find();
-        res.render('albums/index', {
-            albums: allAlbums,
-            title: "Albums",
-        })
+      const user = await db.User.findById(req.session.currentUser);
+      console.log('user found', user);
+      res.render('albums/index', {
+        albums: allAlbums,
+        username: user.username,
+        title: "Albums",
+      })
     } catch (err) {
         return res.send
     }
