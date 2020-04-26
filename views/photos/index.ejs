@@ -1,2 +1,16 @@
 <%- include('../partials/_head') %>
-<%- include('../partials/_footer') %>
+
+    <h2>Photos preview </h2>
+    <ul>
+        <% photos.forEach((photo) => { %>
+            <li>
+                <a href="/photos/<%= photo._id%>">
+                    <%= photo.url %>
+                </a>
+
+
+            </li>
+
+            <% }) %>
+    </ul>
+    <%- include('../partials/_footer') %>
