@@ -89,7 +89,8 @@ router.post('/login', async (req, res) => {
   console.log('user added: ', req.session);
 
   // TODO: redirect to profile page
-  res.send('logged in');
+  res.redirect('/albums');
+  //res.send('logged in');
 
   } catch (err) {
     res.send(err);
