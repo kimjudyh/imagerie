@@ -11,21 +11,21 @@
     <div>
       <label for="albumName">Album Name: </label>
       <input type="text" id="albumName" name="albumName" 
-      value="<%= album.albumName %>">
+      value="<%= album.albumName %>" required>
     </div>
     <div>
       <label for="date">Date: </label>
       <input type="date" id="date" name="date"
-      value="<%= album.date.toString() %>">
+      value="<%= album.date.toString() %>" required>
     </div>
     <div>
       <label for="location">Location: </label>
       <input type="text" id="location" name="location"
-      value="<%= album.location %>">
+      value="<%= album.location %>" required>
     </div>
     <div>
       <label for="description">Description: </label>
-      <textarea name="description" id="description" cols="30" rows="10"><%= album.description %></textarea>
+      <textarea name="description" id="description" cols="30" rows="10" required><%= album.description %></textarea>
     </div>
     <button type="submit">Submit</button>
     </form>
