@@ -1,0 +1,36 @@
+<%- include('../partials/_head') %>
+    <main>
+        <div>
+            <h1>photo View</h1>
+            <h4> <strong>Description: </strong>
+                <p>
+                    <%= photo.description %>
+                </p>
+            </h4>
+            <h4> <strong>Location: </strong>
+                <p>
+                    <%= photo.location %>
+                </p>
+            </h4>
+            <h4>
+                <Strong>Date:</Strong>
+                <%= photo.date.toLocaleDateString() %>
+            </h4>
+        </div>
+
+        <div>
+            <img src="<%= photo.url%>" alt="image">
+        </div>
+
+        <div>
+            <a href="/photos/<%= photo._id %>/edit"><button type="submit">Edit</button></a>
+        </div>
+
+        <div>
+            <form action="/photos/<%= photo._id %>?_method=DELETE" method="POST">
+                <button type="submit">Delete </button>
+            </form>
+        </div>
+
+    </main>
+    <%- include('../partials/_footer') %>
