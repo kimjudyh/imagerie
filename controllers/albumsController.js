@@ -13,12 +13,13 @@ router.get('/', async(req, res) => {
     try {
       // filter by user id
       console.log('cookie', req.session.currentUser)
-      // TODO: send to login page if currentUser is undefined
+      // user authorization
       if (!req.session.currentUser) {
+        // send to login screen if not logged in
         return res.redirect('/auth/login');
       }
       const allAlbums = await db.Album.find({user: req.session.currentUser});
-      // TODO: populate user field w/ User object
+      // get logged in user to pass their username to view
       const user = await db.User.findById(req.session.currentUser);
       console.log('user found', user);
       res.render('albums/index', {
@@ -33,6 +34,7 @@ router.get('/', async(req, res) => {
 
 // get albums new
 router.get('/new', (req, res) => {
+  // TODO: add authorization
     res.render('albums/new', {
         title: 'Create'
     });
@@ -41,12 +43,15 @@ router.get('/new', (req, res) => {
 // post albums create
 router.post('/', async(req, res) => {
     try {
+      // TODO: user authorization
       // assign user in cookie to album
         const createAlbum = await db.Album.create(req.body);
         createAlbum.user = req.session.currentUser;
         const savedAlbum = await createAlbum.save();
         console.log('saved album: ', savedAlbum);
+
         res.redirect('/albums')
+
     } catch (err) {
         return res.send(err)
     }
@@ -55,6 +60,7 @@ router.post('/', async(req, res) => {
 // get albums show
 router.get('/:id', async(req, res) => {
     try {
+      // TODO: user authorization
       // get specific album
       const foundAlbum = await db.Album.findById(req.params.id);
       // get all photos with this album id
@@ -73,6 +79,7 @@ router.get('/:id', async(req, res) => {
 // get albums edit
 router.get('/:id/edit', async(req, res) => {
     try {
+      // user authorization:
         const foundAlbum = await db.Album.findById(req.params.id);
         // format date to match input type="date": yyyy-mm-dd
         albumDateString = foundAlbum.date.toISOString().slice(0, 10);
@@ -90,6 +97,7 @@ router.get('/:id/edit', async(req, res) => {
 // get albums update
 router.put('/:id', async(req, res) => {
     try {
+      // TODO: user authorization
         const editAlbum = await db.Album.findByIdAndUpdate(
             req.params.id,
             req.body, { new: true }
@@ -103,6 +111,7 @@ router.put('/:id', async(req, res) => {
 // delete albums
 router.delete('/:id', async(req, res) => {
     try {
+      // TODO: user authorization
         const deleteAlbum = await db.Album.findByIdAndDelete(req.params.id);
         res.redirect('/albums');
     } catch (err) {
