@@ -1,16 +1,16 @@
 <%- include('../partials/_head') %>
 
-    <h2>Photos preview </h2>
-    <ul>
-        <% photos.forEach((photo) => { %>
-            <li>
-                <a href="/photos/<%= photo._id%>">
-                    <%= photo.url %>
-                </a>
+<h2>Photos preview </h2>
+<ul>
+  <% photos.forEach((photo) => { %>
+  <li>
+    <a href="/photos/<%= photo._id%>">
+      <%= photo.url %>
+    </a>
 
 
-            </li>
+  </li>
 
-            <% }) %>
-    </ul>
-    <%- include('../partials/_footer') %>
+  <% }) %>
+</ul>
+<%- include('../partials/_footer') %>

@@ -1,31 +1,31 @@
 <%- include('../partials/_head') %>
-    <main>
-        <h1> Register</h1>
+<main>
+  <h1> Register</h1>
 
-        <!-- form for registration -->
-        <form action="/auth/register" method="POST">
-            <div>
-                <label for="username">Username</label>
-                <input type="text" id="username" name="username" />
-            </div>
+  <!-- form for registration -->
+  <form action="/auth/register" method="POST">
+    <div>
+      <label for="username">Username</label>
+      <input type="text" id="username" name="username" />
+    </div>
 
-            <div>
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" />
-            </div>
+    <div>
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" />
+    </div>
 
-            <div>
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password" />
-            </div>
+    <div>
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" />
+    </div>
 
-            <div>
-                <label for="password2">Confirm Password</label>
-                <input type="password" id="password2" name="password2" />
-            </div>
+    <div>
+      <label for="password2">Confirm Password</label>
+      <input type="password" id="password2" name="password2" />
+    </div>
 
-            <input type="submit" value="Register" />
-        </form>
+    <input type="submit" value="Register" />
+  </form>
 
-    </main>
-    <%- include('../partials/_footer') %>
+</main>
+<%- include('../partials/_footer') %>
