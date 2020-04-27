@@ -4,7 +4,18 @@
   <div>
     <h1>Photo View</h1>
 
-    <a href="/albums/<%=photo.album %>">Back</a>
+    <a href="/albums/<%=photo.album %>">Back to Album</a>
+    <div>
+      <!--Previous Photo Link-->
+      <% if (photoPosition > 0) {%>
+        <a href="/albums/<%= photo.album %>/photos/<%= albumPhotosArray[photoPosition - 1]%>">Previous Photo</a> | 
+      <% } %>
+
+      <!--Next Photo Link-->
+      <% if (photoPosition < albumPhotosArray.length - 1) {%>
+        <a href="/albums/<%= photo.album %>/photos/<%= albumPhotosArray[photoPosition + 1]%>">Next Photo</a>  
+      <% } %>
+    </div>
     <div>
       <strong>Description: </strong>
       <p>
