@@ -28,9 +28,11 @@ router.post('/register', async (req, res) => {
         title: 'Login',
       });
     }
-    // TODO: verify "password" and "confirm password" match
+    
+       // TODO: verify "password" and "confirm password" match
     // check password match
     if (req.body.password !== req.body.password2) {
+      
       return res.render('auth/register', {
         title: 'Register',
         error: 'Password do not match',
@@ -40,7 +42,7 @@ router.post('/register', async (req, res) => {
     if(req.body.password.length < 3){
       return res.render('auth/register', {
         title: 'Register',
-        error: 'Password should be at least 3 characters',
+        error: 'Password should be at least 4 characters',
       });
     }
 
@@ -48,13 +50,13 @@ router.post('/register', async (req, res) => {
     const salt = bcrypt.genSaltSync(10);
     // hash password- takes 2 params: password to hash, salt
     const hash = bcrypt.hashSync(req.body.password, salt);
-
     // creating an object with username, email, hashed password
     const userData = {
       username: req.body.username,
       email: req.body.email,
       password: hash,
     };
+   
 
     // else, create user in database
     const newUser = await db.User.create(userData);
