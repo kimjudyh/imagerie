@@ -3,7 +3,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
 require('dotenv').config();
-const port = process.env.PORT || 5000
+
 const path = require('path');
 const session = require('express-session');
 
@@ -12,6 +12,8 @@ const MongoStore = require('connect-mongo')(session);
 
 const app = express();
 const port = process.env.PORT || 4000;
+
+console.log('testing dotenv : ', process.env.TEST)
 
 // ======= VIEW ENGINE
 app.set('view engine', 'ejs');
@@ -32,7 +34,7 @@ app.use(session({
     // store session in mongodb
     store: new MongoStore(
         // connection url
-        { url: 'mongodb://localhost:27017/project-one-sessions' }),
+        { url: process.env.SESSION_MONGODB_URI }),
 }));
 
 // ======= ROUTES
