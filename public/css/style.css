@@ -2,5 +2,12 @@ body {
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
+  margin-left: 20px;
+}
 
+img {
+  max-width: 40vw;
+  max-height: 40vh;
+  width: auto;
+  height: auto;
 }
