@@ -1,4 +1,8 @@
 <%- include('../partials/_head') %>
+<% if (typeof error !== 'undefined') { %>
+<span style="color: red;"><%= error %></span>
+<%}%>
+
 <main>
   <h1> Login</h1>
 
