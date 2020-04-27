@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 const AlbumSchema = new mongoose.Schema({
   albumName: {
     type: String,
-    unique: true,
+    //unique: true,
     required: true,
   },
   date: {

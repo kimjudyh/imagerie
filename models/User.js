@@ -17,6 +17,7 @@ const UserSchema = new mongoose.Schema({
   },
   password: {
     type: String,
+    unique: true,
   },
   albums: [{
     type: mongoose.Schema.Types.ObjectId,
