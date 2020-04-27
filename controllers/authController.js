@@ -22,7 +22,10 @@ router.post('/register', async (req, res) => {
     if (user) {
       // user comes back as truthy, account exists
       // TODO: redirect to login with error message
-      return res.send('Account already exists, please login');
+      return res.render('auth/login', {
+        error: 'Account already excites',
+        title: 'Login',
+      });
     }
     // TODO: verify "password" and "confirm password" match
 

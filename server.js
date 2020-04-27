@@ -37,6 +37,7 @@ app.use(session({
     { url: process.env.SESSION_MONGODB_URI }),
 }));
 
+
 // ======= ROUTES
 app.get('/', (req, res) => {
   res.render('index', {
