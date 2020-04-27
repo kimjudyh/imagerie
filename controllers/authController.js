@@ -18,6 +18,7 @@ router.get('/register', (req, res) => {
 router.post('/register', async (req, res) => {
   try {
   // check if user already exists in db
+  console.log('req body',req.body)
     const user = await db.User.findOne({username: req.body.username});
     if (user) {
       // user comes back as truthy, account exists
@@ -28,6 +29,13 @@ router.post('/register', async (req, res) => {
       });
     }
     // TODO: verify "password" and "confirm password" match
+    // check password match
+    if (req.body.password !== req.body.password2) {
+      return res.render('auth/register', {
+        title: 'Register',
+        error: 'Password do not match',
+      });
+    }
 
     // generate salt (adds complication to our password hash)
     const salt = bcrypt.genSaltSync(10);
