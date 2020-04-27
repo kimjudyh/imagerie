@@ -100,11 +100,14 @@ router.get('/:id/edit', async(req, res) => {
             return res.redirect('/auth/login');
         };
         const foundAlbum = await db.Album.findById(req.params.id);
+        // get all photos from photo DB
+        const albumPhotos = await db.Photo.find({ album: req.params.id });
         // format date to match input type="date": yyyy-mm-dd
         albumDateString = foundAlbum.date.toISOString().slice(0, 10);
         console.log(albumDateString);
         res.render('albums/edit', {
             album: foundAlbum,
+            albumPhotos: albumPhotos,
             albumDateString: albumDateString,
             title: 'Edit',
         })
