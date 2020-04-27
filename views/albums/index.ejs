@@ -9,7 +9,19 @@
   <% albums.forEach((album) => { %>
     <div>
       <%= album.albumName %>
-      <a href="/albums/<%= album._id %>">View this album</a>
+      <nav>
+        <ul>
+          <li>
+            <a href="/albums/<%= album._id %>">View Album</a>
+          </li>
+          <li>
+            <a href="/albums/<%= album._id %>/edit">Edit Album</a>
+          </li>
+          <li>
+            <a href="/albums/<%= album._id %>/photos/new">Add Photo</a>
+          </li>
+        </ul>
+      </nav>
     </div>
   <% }) %>
 </div>
