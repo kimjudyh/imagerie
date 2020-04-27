@@ -1,29 +1,26 @@
 <%- include('../partials/_head') %>
-<main>
-    <h1>Add a New Photo</h1>
-    <div>
-        <!--New Inputs-->
-        <form action="/albums/<%= albumId %>/photos" method="POST">
-            <div>
-                <label for="url">Url: </label>
-                <input type="text" id="url" name="url" required>
-            </div>
-            <div>
-                <label for="date">Date: </label>
-                <input type="date" id="date" name="date" >
-            </div>
-            <div>
-                <label for="location">Location: </label>
-                <input type="text" id="location" name="location" required>
-            </div>
-            <div>
-                <label for="description">Description: </label>
-                <textarea name="description" id="description" cols="30" rows="10" required></textarea>
-            </div>
-            <!--Submit-->
-            <button type="submit">Submit</button>
-        </form>
-        <!--TODO: cancel button-->
-    </div>
-</main>
-<%- include('../partials/_footer') %>
+    <main>
+        <h1>Add a New </h1>
+        <div>
+            <form action="/photos" method="POST">
+                <div>
+                    <label for="url">Url: </label>
+                    <input type="text" id="url" name="url" required>
+                </div>
+                <div>
+                    <label for="date">Date: </label>
+                    <input type="date" id="date" name="date" required>
+                </div>
+                <div>
+                    <label for="location">Location: </label>
+                    <input type="text" id="location" name="location" required>
+                </div>
+                <div>
+                    <label for="description">Description: </label>
+                    <textarea name="description" id="description" cols="30" rows="10" required></textarea>
+                </div>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </main>
+    <%- include('../partials/_footer') %>

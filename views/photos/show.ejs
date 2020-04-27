@@ -2,6 +2,8 @@
     <main>
         <div>
             <h1>photo View</h1>
+
+            <a href="/albums/<%=photo.album %>">Back</a>
             <h4> <strong>Description: </strong>
                 <p>
                     <%= photo.description %>
@@ -16,7 +18,7 @@
                 <Strong>Date:</Strong>
                 <% if (photo.date) { %>
                     <%= photo.date.toLocaleDateString() %>
-                <% } %>
+                        <% } %>
             </h4>
         </div>
 
