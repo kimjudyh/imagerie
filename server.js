@@ -52,6 +52,7 @@ app.use('/auth', authController);
 app.use('/albums', albumsController);
 
 // Photo Routes
+// TODO: remove photosController from server.js 
 app.use('/photos', photosController);
 
 // ======= SERVER LISTENER

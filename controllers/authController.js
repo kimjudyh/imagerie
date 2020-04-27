@@ -23,7 +23,7 @@ router.post('/register', async (req, res) => {
       // user comes back as truthy, account exists
       // TODO: redirect to login with error message
       return res.render('auth/login', {
-        error: 'Account already excites',
+        error: 'Account already exists. Please login',
         title: 'Login',
       });
     }
