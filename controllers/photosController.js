@@ -7,6 +7,7 @@ const db = require('../models');
 
 // ======== ROUTES
 // Photo Index route
+// TODO: delete, maybe
 router.get('/', async (req, res) => {
   try {
     // authorization
@@ -57,7 +58,6 @@ router.post('/:albumid/photos', async (req, res) => {
     console.log('saved photo', savedPhoto);
 
     // add photo id to Album photo id array 
-    // unnecessary??
     const foundAlbum = await db.Album.findById(req.params.albumid);
     foundAlbum.photos.push(savedPhoto._id);
     console.log('album photo id array', foundAlbum.photos);
@@ -81,9 +81,19 @@ router.get('/:albumid/photos/:id', async (req, res) => {
     };
     // get specific photo from db
     const foundPhoto = await db.Photo.findById(req.params.id);
+    // get album that contains this photo from db
+    const foundAlbum = await db.Album.findById(req.params.albumid);
+    // use Album.photos array to navigate to previous, next photo
+    const albumPhotosArray = foundAlbum.photos;
+    // find this photo's position in the photos array
+    const foundPhotoPosition = foundAlbum.photos.indexOf(req.params.id);
+    console.log('index of photo', foundPhotoPosition);
+
     res.render('photos/show', {
       title: 'Show Photo',
       photo: foundPhoto,
+      albumPhotosArray: albumPhotosArray, 
+      photoPosition: foundPhotoPosition,
     });
 
   } catch (err) {
@@ -148,7 +158,9 @@ router.delete('/:albumid/photos/:id', async (req, res) => {
     if (!req.session.currentUser) {
       return res.redirect('/auth/login');
     };
+    // delete photo object
     const deletedPhoto = await db.Photo.findByIdAndDelete(req.params.id);
+    // TODO: delete photo reference from Album.photos array
     // redirect to album that photo was in
     res.redirect(`/albums/${req.params.albumid}`);
 
