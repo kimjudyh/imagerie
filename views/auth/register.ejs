@@ -1,6 +1,13 @@
 <%- include('../partials/_head') %>
 <main>
   <h1> Register</h1>
+  <% if (typeof error !== 'undefined') { %>
+    <div class="error-message">
+     <h3><%= error %></h3> 
+    </div>
+  
+  <%}%>
+  
 
   <!-- form for registration -->
   <form action="/auth/register" method="POST">
