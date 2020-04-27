@@ -9,12 +9,12 @@ const db = require('../models');
 // Photo Index route
 router.get('/', async(req, res) => {
     try {
-        // athurization
+        // authorization
         if (!req.session.currentUser) {
             return res.redirect('/auth/login');
         }
         // get all photos from database
-        // TODO: filter by album id
+        // TODO: filter by album id?
         const allPhotos = await db.Photo.find();
         res.render('photos/index', {
             title: 'Photo Index',
@@ -28,7 +28,7 @@ router.get('/', async(req, res) => {
 
 // GET new Photo
 router.get('/:albumid/photos/new', async(req, res) => {
-    // athurization
+    // authorization
     if (!req.session.currentUser) {
         return res.redirect('/auth/login');
     };
@@ -42,7 +42,7 @@ router.get('/:albumid/photos/new', async(req, res) => {
 // POST create Photo
 router.post('/:albumid/photos', async(req, res) => {
     try {
-        // athurization
+        // authorization
         if (!req.session.currentUser) {
             return res.redirect('/auth/login');
         };
@@ -72,7 +72,7 @@ router.post('/:albumid/photos', async(req, res) => {
 // Photo Show route
 router.get('/:id', async(req, res) => {
     try {
-        // athurization
+        // authorization
         if (!req.session.currentUser) {
             return res.redirect('/auth/login');
         };
@@ -91,7 +91,7 @@ router.get('/:id', async(req, res) => {
 // GET edit Photo
 router.get('/:id/edit', async(req, res) => {
     try {
-        // athurization
+        // authorization
         if (!req.session.currentUser) {
             return res.redirect('/auth/login');
         };
@@ -117,7 +117,7 @@ router.get('/:id/edit', async(req, res) => {
 // PUT update Photo
 router.put('/:id', async(req, res) => {
     try {
-        // athurization
+        // authorization
         if (!req.session.currentUser) {
             return res.redirect('/auth/login');
         };
@@ -135,7 +135,7 @@ router.put('/:id', async(req, res) => {
 // DELETE destroy Photo
 router.delete('/:id', async(req, res) => {
     try {
-        // athurization
+        // authorization
         if (!req.session.currentUser) {
             return res.redirect('/auth/login');
         };

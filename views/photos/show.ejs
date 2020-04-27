@@ -14,7 +14,9 @@
             </h4>
             <h4>
                 <Strong>Date:</Strong>
-                <%= photo.date.toLocaleDateString() %>
+                <% if (photo.date) { %>
+                    <%= photo.date.toLocaleDateString() %>
+                <% } %>
             </h4>
         </div>
 
