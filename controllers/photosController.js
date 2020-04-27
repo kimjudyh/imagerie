@@ -73,7 +73,7 @@ router.post('/:albumid/photos', async (req, res) => {
 
 // ----- Dynamic Routes
 // Photo Show route
-router.get('/:id', async (req, res) => {
+router.get('/:albumid/photos/:id', async (req, res) => {
   try {
     // authorization
     if (!req.session.currentUser) {
@@ -92,7 +92,7 @@ router.get('/:id', async (req, res) => {
 });
 
 // GET edit Photo
-router.get('/:id/edit', async (req, res) => {
+router.get('/:albumid/photos/:id/edit', async (req, res) => {
   try {
     // authorization
     if (!req.session.currentUser) {
@@ -103,9 +103,13 @@ router.get('/:id/edit', async (req, res) => {
 
     // format date to match input type="date": yyyy-mm-dd
     console.log('photo.date: ', foundPhoto.date);
-    console.log('ISO date', foundPhoto.date.toISOString())
-    console.log('photo toLocale string', foundPhoto.date.toLocaleDateString())
-    const photoDateString = foundPhoto.date.toISOString().slice(0, 10);
+    //console.log('ISO date', foundPhoto.date.toISOString())
+    //console.log('photo toLocale string', foundPhoto.date.toLocaleDateString())
+    let photoDateString = '';
+    if (foundPhoto.date) {
+      // date has been defined by user
+      photoDateString = foundPhoto.date.toISOString().slice(0, 10);
+    } 
 
     res.render('photos/edit', {
       title: 'Edit Photo',
@@ -119,7 +123,7 @@ router.get('/:id/edit', async (req, res) => {
 });
 
 // PUT update Photo
-router.put('/:id', async (req, res) => {
+router.put('/:albumid/photos/:id', async (req, res) => {
   try {
     // authorization
     if (!req.session.currentUser) {
@@ -130,7 +134,7 @@ router.put('/:id', async (req, res) => {
       req.params.id,
       req.body, { new: true },
     );
-    res.redirect(`/photos/${req.params.id}`);
+    res.redirect(`/albums/${req.params.albumid}/photos/${req.params.id}`);
 
   } catch (err) {
     res.send(err);
@@ -138,15 +142,15 @@ router.put('/:id', async (req, res) => {
 });
 
 // DELETE destroy Photo
-router.delete('/:id', async (req, res) => {
+router.delete('/:albumid/photos/:id', async (req, res) => {
   try {
     // authorization
     if (!req.session.currentUser) {
       return res.redirect('/auth/login');
     };
     const deletedPhoto = await db.Photo.findByIdAndDelete(req.params.id);
-    // TODO: redirect to album that photo was in
-    res.redirect('/photos');
+    // redirect to album that photo was in
+    res.redirect(`/albums/${req.params.albumid}`);
 
   } catch (err) {
     res.send(err);

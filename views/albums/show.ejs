@@ -12,7 +12,7 @@
   <!--Show Photo thumbnails-->
   <div>
     <% albumPhotos.forEach((albumPhoto) => { %>
-    <a href="/photos/<%= albumPhoto._id %>"><img src="<%= albumPhoto.url %>" alt=""></a>
+    <a href="/albums/<%= album._id %>/photos/<%= albumPhoto._id %>"><img src="<%= albumPhoto.url %>" alt=""></a>
     <% }) %>
   </div>
   <!--Delete Album-->

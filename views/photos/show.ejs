@@ -1,38 +1,41 @@
 <%- include('../partials/_head') %>
 <main>
+  <!--Photo Properties-->
   <div>
-    <h1>photo View</h1>
+    <h1>Photo View</h1>
 
     <a href="/albums/<%=photo.album %>">Back</a>
-    <h4> <strong>Description: </strong>
+    <div>
+      <strong>Description: </strong>
       <p>
         <%= photo.description %>
       </p>
-    </h4>
-    <h4> <strong>Location: </strong>
+    </div>
+    <div>
+      <strong>Location: </strong>
       <p>
         <%= photo.location %>
       </p>
-    </h4>
-    <h4>
+    </div>
+    <div>
       <Strong>Date:</Strong>
       <% if (photo.date) { %>
       <%= photo.date.toLocaleDateString() %>
       <% } %>
-    </h4>
+    </div>
   </div>
-
+  <!--Show Image-->
   <div>
     <img src="<%= photo.url%>" alt="image">
   </div>
-
+  <!--Edit Button-->
   <div>
-    <a href="/photos/<%= photo._id %>/edit"><button type="submit">Edit</button></a>
+    <a href="/albums/<%= photo.album %>/photos/<%= photo._id %>/edit"><button>Edit</button></a>
   </div>
-
+  <!--Delete Button-->
   <div>
-    <form action="/photos/<%= photo._id %>?_method=DELETE" method="POST">
-      <button type="submit">Delete </button>
+    <form action="/albums/<%= photo.album %>/photos/<%= photo._id %>?_method=DELETE" method="POST">
+      <button type="submit">Delete</button>
     </form>
   </div>
 
