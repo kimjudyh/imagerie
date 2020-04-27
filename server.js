@@ -2,10 +2,9 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
-require('dotenv').config();
-
 const path = require('path');
 const session = require('express-session');
+require('dotenv').config();
 
 // store sessions in mongoDB
 const MongoStore = require('connect-mongo')(session);
@@ -27,6 +26,7 @@ const photosController = require('./controllers/photosController');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(methodOverride('_method'));
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({
   secret: process.env.SESSION_SECRET,
   resave: false, // only save session if set or mutate property on session object
