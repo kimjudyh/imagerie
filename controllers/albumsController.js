@@ -39,7 +39,7 @@ router.get('/new', (req, res) => {
     // TODO: add authorization
     if (!req.session.currentUser) {
         //   if no user so doesnt have access inside the new form
-        res.redirect('/auth/login');
+        return res.redirect('/auth/login');
     }
     res.render('albums/new', {
         title: 'Create'
@@ -52,7 +52,7 @@ router.post('/', async(req, res) => {
         // TODO: user authorization
         if (!req.session.currentUser) {
             //   if no user so doesnt have access inside the new form
-            res.redirect('/auth/login');
+            return res.redirect('/auth/login');
         };
         // assign user in cookie to album
         const createAlbum = await db.Album.create(req.body);
@@ -73,7 +73,7 @@ router.get('/:id', async(req, res) => {
         // TODO: user authorization
         if (!req.session.currentUser) {
             //   if no user so doesnt have access inside the new form
-            res.redirect('/auth/login');
+            return res.redirect('/auth/login');
         };
         // get specific album
         const foundAlbum = await db.Album.findById(req.params.id);
@@ -97,7 +97,7 @@ router.get('/:id/edit', async(req, res) => {
 
         if (!req.session.currentUser) {
             //   if no user so doesnt have access inside the new form
-            res.redirect('/auth/login');
+            return res.redirect('/auth/login');
         };
         const foundAlbum = await db.Album.findById(req.params.id);
         // format date to match input type="date": yyyy-mm-dd
@@ -119,7 +119,7 @@ router.put('/:id', async(req, res) => {
         // TODO: user authorization
         if (!req.session.currentUser) {
             //   if no user so doesnt have access inside the new form
-            res.redirect('/auth/login');
+            return res.redirect('/auth/login');
         };
         const editAlbum = await db.Album.findByIdAndUpdate(
             req.params.id,
@@ -137,7 +137,7 @@ router.delete('/:id', async(req, res) => {
         // TODO: user authorization
         if (!req.session.currentUser) {
             //   if no user so doesnt have access inside the new form
-            res.redirect('/auth/login');
+            return res.redirect('/auth/login');
         };
         const deleteAlbum = await db.Album.findByIdAndDelete(req.params.id);
         res.redirect('/albums');
