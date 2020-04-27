@@ -24,7 +24,7 @@ router.post('/register', async (req, res) => {
       // user comes back as truthy, account exists
       // TODO: redirect to login with error message
       return res.render('auth/login', {
-        error: 'Account already exists. Please login',
+        error: 'Account already excites',
         title: 'Login',
       });
     }
@@ -34,6 +34,13 @@ router.post('/register', async (req, res) => {
       return res.render('auth/register', {
         title: 'Register',
         error: 'Password do not match',
+      });
+    }
+    // check password length
+    if(req.body.password.length < 3){
+      return res.render('auth/register', {
+        title: 'Register',
+        error: 'Password should be at least 3 characters',
       });
     }
 
