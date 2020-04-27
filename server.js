@@ -5,6 +5,9 @@ const methodOverride = require('method-override');
 const path = require('path');
 const session = require('express-session');
 
+// store sessions in mongoDB
+const MongoStore = require('connect-mongo')(session);
+
 const app = express();
 const port = process.env.PORT || 4000;
 
@@ -21,16 +24,20 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(methodOverride('_method'));
 app.use(session({
-    secret: 'xo4SO*U#;ljxliha987DKJEI',
-    resave: false, // only save session if set or mutate property on session object
-    saveUninitialized: false, // only save a cookie when we set a property
+  secret: 'xo4SO*U#;ljxliha987DKJEI',
+  resave: false, // only save session if set or mutate property on session object
+  saveUninitialized: false, // only save a cookie when we set a property
+  // store session in mongodb
+  store: new MongoStore(
+    // connection url
+    { url: 'mongodb://localhost:27017/project-one-sessions' }),
 }));
 
 // ======= ROUTES
 app.get('/', (req, res) => {
-    res.render('index', {
-        title: 'Homepage',
-    });
+  res.render('index', {
+    title: 'Homepage',
+  });
 })
 
 // Auth/User routes
@@ -44,5 +51,5 @@ app.use('/photos', photosController);
 
 // ======= SERVER LISTENER
 app.listen(port, () => {
-    console.log('Server running on port', port);
+  console.log('Server running on port', port);
 })
