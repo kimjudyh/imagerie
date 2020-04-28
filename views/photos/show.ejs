@@ -1,7 +1,7 @@
 <%- include('../partials/_head') %>
 <main>
   <!--Photo Properties-->
-  <div>
+  <div class="show-body">
     <h1>Photo View</h1>
 
     <a href="/albums/<%=photo.album %>">Back to Album</a>
@@ -39,7 +39,7 @@
     </div>
   </div>
   <!--Show Image-->
-  <div>
+  <div class="show-body__img">
     <img src="<%= photo.url%>" alt="image">
   </div>
   <!--Edit Button-->
