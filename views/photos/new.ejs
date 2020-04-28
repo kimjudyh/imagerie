@@ -3,11 +3,19 @@
   <h1>Add a New Photo</h1>
   <div>
     <!--New Inputs-->
-    <form action="/albums/<%= albumId %>/photos" method="POST">
+    <!-- <form action="/albums/<%= albumId %>/photos" method="POST"> -->
+      <!--enctype form-->
+    <form action="/albums/<%= albumId %>/photos" enctype="multipart/form-data" method="POST">
       <div>
-        <label for="url">Url: </label>
+        <!--TODO: allow only one upload option-->
+        <label for="image">Upload a Picture</label>
         <br/>
-        <input type="text" id="url" name="url" required>
+        <input type="file" name="image">
+      </div>
+      <div>
+        <label for="url">Or Use a Url: </label>
+        <br/>
+        <input type="text" id="url" name="url" >
       </div>
       <div>
         <label for="date">Date: </label>
