@@ -146,10 +146,13 @@ router.delete('/:id', async (req, res) => {
       return res.redirect('/auth/login');
     };
     const deleteAlbum = await db.Album.findByIdAndDelete(req.params.id);
+    const deletePhotos = await db.Photo.deleteMany({album: req.params.id})
+
     res.redirect('/albums');
   } catch (err) {
     return res.send(err);
   }
+
 });
 
 // ------ Photos Routes
