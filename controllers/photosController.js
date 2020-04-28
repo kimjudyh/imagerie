@@ -113,12 +113,17 @@ router.get('/:albumid/photos/:id/edit', async (req, res) => {
 
     // format date to match input type="date": yyyy-mm-dd
     console.log('photo.date: ', foundPhoto.date);
-    //console.log('ISO date', foundPhoto.date.toISOString())
-    //console.log('photo toLocale string', foundPhoto.date.toLocaleDateString())
     let photoDateString = '';
     if (foundPhoto.date) {
       // date has been defined by user
-      photoDateString = foundPhoto.date.toISOString().slice(0, 10);
+      // adjust date for timezone
+      let photoDate = foundPhoto.date;
+      // convert date to ms
+      // get timezone offset and convert from min to ms
+      // convert ms to date
+      photoDate = new Date(photoDate.getTime() - (photoDate.getTimezoneOffset() * 60000));
+      // format date to match input type="date": yyyy-mm-dd
+      photoDateString = photoDate.toISOString().slice(0, 10);
     } 
 
     res.render('photos/edit', {

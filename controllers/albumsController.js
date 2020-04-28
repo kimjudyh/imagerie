@@ -99,9 +99,15 @@ router.get('/:id/edit', async (req, res) => {
     const foundAlbum = await db.Album.findById(req.params.id);
     // get all photos from photo DB
     const albumPhotos = await db.Photo.find({ album: req.params.id });
+    // adjust date for timezone
+    let albumDate = foundAlbum.date;
+    // convert date to ms
+    // get timezone offset and convert from min to ms
+    // convert ms to date
+    albumDate = new Date(albumDate.getTime() - (albumDate.getTimezoneOffset() * 60000));
     // format date to match input type="date": yyyy-mm-dd
-    albumDateString = foundAlbum.date.toISOString().slice(0, 10);
-    console.log(albumDateString);
+    const albumDateString = albumDate.toISOString().slice(0, 10);
+
     res.render('albums/edit', {
       album: foundAlbum,
       albumPhotos: albumPhotos,
