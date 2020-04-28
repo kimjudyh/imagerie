@@ -27,7 +27,16 @@ router.post('/register', async (req, res) => {
         title: 'Login',
       });
     }
-    
+    // check if email laready exists
+    if (req.body.email) {
+      // user comes back as truthy, account exists
+      // TODO: redirect to login with error message
+      return res.render('auth/register', {
+        error: 'Email already used, please use a new one',
+        title: 'register',
+      });
+    }
+
        // TODO: verify "password" and "confirm password" match
     // check password match
     if (req.body.password !== req.body.password2) {
