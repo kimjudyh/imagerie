@@ -5,6 +5,20 @@ body {
   margin-left: 20px;
 }
 
+.header__nav {
+  display: flex;
+}
+
+.header__nav ul {
+  display: flex;
+  padding: 0;
+  list-style: none; 
+}
+
+.header__nav li {
+  margin: 5px 10px;
+}
+
 img {
   max-width: 40vw;
   max-height: 40vh;
