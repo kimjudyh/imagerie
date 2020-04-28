@@ -1,7 +1,7 @@
 <%- include('../partials/_head') %>
 <main>
   <!--Photo Properties-->
-  <div>
+  <div class="show-body">
     <h1>Photo View</h1>
 
     <a href="/albums/<%=photo.album %>">Back to Album</a>
@@ -9,11 +9,14 @@
       <!--Previous Photo Link-->
       <% if (photoPosition > 0) {%>
         <a href="/albums/<%= photo.album %>/photos/<%= albumPhotosArray[photoPosition - 1]%>">Previous Photo</a> | 
+      <% } else { %>
+        Previous Photo |
       <% } %>
-
       <!--Next Photo Link-->
       <% if (photoPosition < albumPhotosArray.length - 1) {%>
         <a href="/albums/<%= photo.album %>/photos/<%= albumPhotosArray[photoPosition + 1]%>">Next Photo</a>  
+      <% } else { %>
+        Next Photo
       <% } %>
     </div>
     <div>
@@ -36,7 +39,7 @@
     </div>
   </div>
   <!--Show Image-->
-  <div>
+  <div class="show-body__img">
     <img src="<%= photo.url%>" alt="image">
   </div>
   <!--Edit Button-->
