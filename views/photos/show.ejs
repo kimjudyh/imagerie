@@ -9,11 +9,14 @@
       <!--Previous Photo Link-->
       <% if (photoPosition > 0) {%>
         <a href="/albums/<%= photo.album %>/photos/<%= albumPhotosArray[photoPosition - 1]%>">Previous Photo</a> | 
+      <% } else { %>
+        Previous Photo |
       <% } %>
-
       <!--Next Photo Link-->
       <% if (photoPosition < albumPhotosArray.length - 1) {%>
         <a href="/albums/<%= photo.album %>/photos/<%= albumPhotosArray[photoPosition + 1]%>">Next Photo</a>  
+      <% } else { %>
+        Next Photo
       <% } %>
     </div>
     <div>
