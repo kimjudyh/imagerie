@@ -1,8 +1,10 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: Arial, sans-serif;
-  margin-left: 20px;
+  background:#fff;
+  font-family: 'Raleway', sans-serif;
+    color:#fff
+  /* margin-left: 20px; */
 }
 
 .header__nav {
@@ -15,9 +17,9 @@ body {
   list-style: none; 
 }
 
-.header__nav li {
+/* .header__nav li {
   margin: 5px 10px;
-}
+} */
 
 img {
   max-width: 40vw;
@@ -31,4 +33,32 @@ img {
   max-height: 70vh;
   width: auto;
   height: auto;
+}
+.banner{
+  height: 100vh;
+  width: 100%;
+  background: url(bg.jpg);
+  background-position: top;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+
+}
+.banner .navbar{
+  margin-top: 3%;
+}
+
+.banner .navbar-brand{
+  color:#FFF;
+  font-size: 1.6em;
+  font-weight: 700;
+  /* margin-left: 8%; */
+}
+.banner .nav{
+  /* margin-left: 30%; */
+  border: 2px solid white;
+}
+.banner .nav li a{
+  color:#aaa;
+  font-size: 1.2em;
 }
