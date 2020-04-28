@@ -59,26 +59,19 @@ router.post('/:albumid/photos', multipartMiddleware, async (req, res) => {
     if (!req.session.currentUser) {
       return res.redirect('/auth/login');
     };
-    // cloudinary part
     console.log('req.body', req.body)
-    // if file was uploaded instead of url
+    
+    // Cloudinary part
     let result;
     if (!req.body.url) {
       // if file was uploaded instead of url
-
-      console.log('req.files', req.files.image.path);
+      console.log('req.files path', req.files.image.path);
+      // send temp file storage path to cloudinary, receive URL
       result = await cloudinary.uploader.upload(req.files.image.path);
       console.log('result', result.secure_url);
-      console.log('result exists', result);
+      // save URL to req.body
       req.body.url = await result.secure_url;
     }
-    //const result = await cloudinary.uploader.upload(req.files.image.path);
-      //cloudinary.uploader.upload(req.files.image.path, (result) => {
-      //  console.log('from cloudinary', result);
-      //  console.log('image url', result.secure_url)
-      //  req.body.url = result.secure_url;
-      //  console.log('in uploader req.body', req.body)
-      //})
 
     // make new photo in db
     console.log('req.body from form, ', req.body);
