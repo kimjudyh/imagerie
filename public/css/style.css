@@ -5,9 +5,30 @@ body {
   margin-left: 20px;
 }
 
+.header__nav {
+  display: flex;
+}
+
+.header__nav ul {
+  display: flex;
+  padding: 0;
+  list-style: none; 
+}
+
+.header__nav li {
+  margin: 5px 10px;
+}
+
 img {
   max-width: 40vw;
   max-height: 40vh;
+  width: auto;
+  height: auto;
+}
+
+.show-body__img img {
+  max-width: 80vw;
+  max-height: 70vh;
   width: auto;
   height: auto;
 }

@@ -1,6 +1,18 @@
 // ======== IMPORTS
 const express = require('express');
 const router = express.Router();
+// import connect-multiparty to handle file upload
+// get access to file with req.file
+const multipart = require('connect-multiparty');
+const multipartMiddleware = multipart();
+// import cloudinary
+const cloudinary = require('cloudinary');
+// configure cloudinary w/ account details
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_SECRET,
+})
 
 // ======== MODELS
 const db = require('../models');
@@ -41,16 +53,33 @@ router.get('/:albumid/photos/new', async (req, res) => {
 });
 
 // POST create Photo
-router.post('/:albumid/photos', async (req, res) => {
+router.post('/:albumid/photos', multipartMiddleware, async (req, res) => {
   try {
     // authorization
     if (!req.session.currentUser) {
       return res.redirect('/auth/login');
     };
+    console.log('req.body', req.body)
+    
+    // Cloudinary part
+    let result;
+    if (!req.body.url) {
+      // if file was uploaded instead of url
+      console.log('req.files path', req.files.image.path);
+      // send temp file storage path to cloudinary, receive URL
+      result = await cloudinary.uploader.upload(req.files.image.path);
+      console.log('result', result.secure_url);
+      // save URL to req.body
+      req.body.url = await result.secure_url;
+    }
+
     // make new photo in db
     console.log('req.body from form, ', req.body);
     const newPhoto = await db.Photo.create(req.body);
     console.log('new photo object', newPhoto);
+
+    // redirect back to album edit view
+    res.redirect(`/albums/${req.params.albumid}/edit`);
 
     // add album id to Photo model
     newPhoto.album = req.params.albumid;
@@ -63,8 +92,6 @@ router.post('/:albumid/photos', async (req, res) => {
     console.log('album photo id array', foundAlbum.photos);
     const savedAlbum = await foundAlbum.save();
 
-    // redirect back to album edit view
-    res.redirect(`/albums/${req.params.albumid}/edit`);
 
   } catch (err) {
     res.send(err);
@@ -165,7 +192,7 @@ router.delete('/:albumid/photos/:id', async (req, res) => {
     };
     // delete photo object
     const deletedPhoto = await db.Photo.findByIdAndDelete(req.params.id);
-    // TODO: delete photo reference from Album.photos array
+    // TODO: delete cloud version of picture
     // redirect to album that photo was in
     res.redirect(`/albums/${req.params.albumid}`);
 
