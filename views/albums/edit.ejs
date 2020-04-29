@@ -46,15 +46,17 @@
       <button class="delete" type="submit">Delete Album</button>
     </form>
   </div>
-  <!--TODO: cancel button-->
+  <!--Cancel button-->
   <a href="/albums"><button>Cancel</button></a>
   <!--Display Photos-->
-  <div class="card" style="width: 200px;">
-    <div class="card-img-top">
-      <% albumPhotos.forEach((albumPhoto) => { %>
-      <img src="<%= albumPhoto.url%>" alt="image">
-      <% })%>
-    </div>
+  <div class="album-card-group">
+    <% albumPhotos.forEach((albumPhoto) => { %>
+      <div class="card" style="width: 300px;">
+        <!-- <div class="card-img-top"> -->
+          <img src="<%= albumPhoto.url%>" alt="image">
+        <!-- </div> -->
+      </div>
+    <% })%>
   </div>
   </div>
 </main>
