@@ -67,7 +67,7 @@ router.post('/:albumid/photos', multipartMiddleware, async (req, res) => {
       // if file was uploaded instead of url
       console.log('req.files path', req.files.image.path);
       // send temp file storage path to cloudinary, receive URL
-      result = await cloudinary.uploader.upload(req.files.image.path);
+      result = await cloudinary.v2.uploader.upload(req.files.image.path);
       console.log('result', result.secure_url);
       // save URL to req.body
       req.body.url = await result.secure_url;
