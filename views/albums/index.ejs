@@ -5,25 +5,27 @@
   <h3>Profile Page</h3>
 <a href="/albums/new"><button>+ New Album</button></a>
 
-<div class="album-card-group container">
+<div class="album-card-group">
   <% albums.forEach((album) => { %>
-    <div class="album-card card">
-      <h5 class="card-title"><%= album.albumName %></h5>
+    <div class="album-card card" style="width: 200px;">
+      <div class="card-body">
+        <h5 class="card-title"><%= album.albumName %></h5>
+        <h6 class="card-subtitle"><%= album.location %></h6>
       
-
-      <nav>
-        <ul>
-          <li>
-            <a href="/albums/<%= album._id %>">View Album</a>
-          </li>
-          <li>
-            <a href="/albums/<%= album._id %>/edit">Edit Album</a>
-          </li>
-          <li>
-            <a href="/albums/<%= album._id %>/photos/new">Add Photo</a>
-          </li>
-        </ul>
-      </nav>
+        <nav>
+          <ul>
+            <li>
+              <a href="/albums/<%= album._id %>">View Album</a>
+            </li>
+            <li>
+              <a href="/albums/<%= album._id %>/edit">Edit Album</a>
+            </li>
+            <li>
+              <a href="/albums/<%= album._id %>/photos/new">Add Photo</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
     </div>
   <% }) %>
 </div>
