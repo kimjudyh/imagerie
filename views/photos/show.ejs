@@ -1,10 +1,27 @@
 <%- include('../partials/_head') %>
 <main class="container">
   <!--Photo Properties-->
-  <div class="show-body">
     <h1><%= albumName %></h1>
-
     <a href="/albums/<%=photo.album %>">Back to Album</a>
+    <div class="photo-navigation">
+      <!--Previous Photo Link-->
+      <% if (photoPosition > 0) {%>
+        <a href="/albums/<%= photo.album %>/photos/<%= albumPhotosArray[photoPosition - 1]%>">Previous Photo</a>  
+      <% } else { %>
+        Previous Photo |
+      <% } %>
+      <!--Next Photo Link-->
+      <% if (photoPosition < albumPhotosArray.length - 1) {%>
+        <a href="/albums/<%= photo.album %>/photos/<%= albumPhotosArray[photoPosition + 1]%>">Next Photo</a>  
+      <% } else { %>
+        Next Photo
+      <% } %>
+    </div>
+  <!--Show Image-->
+  <div class="show-body__img">
+    <img class="img-fluid" src="<%= photo.url%>" alt="image">
+  </div>
+  <div class="show-body">
     <div>
       <strong>Description: </strong>
       <p>
@@ -23,24 +40,6 @@
       <%= photo.date.toLocaleDateString() %>
       <% } %>
     </div>
-  </div>
-    <div class="photo-navigation">
-      <!--Previous Photo Link-->
-      <% if (photoPosition > 0) {%>
-        <a href="/albums/<%= photo.album %>/photos/<%= albumPhotosArray[photoPosition - 1]%>">Previous Photo</a> | 
-      <% } else { %>
-        Previous Photo |
-      <% } %>
-      <!--Next Photo Link-->
-      <% if (photoPosition < albumPhotosArray.length - 1) {%>
-        <a href="/albums/<%= photo.album %>/photos/<%= albumPhotosArray[photoPosition + 1]%>">Next Photo</a>  
-      <% } else { %>
-        Next Photo
-      <% } %>
-    </div>
-  <!--Show Image-->
-  <div class="show-body__img">
-    <img src="<%= photo.url%>" alt="image">
   </div>
   <!--Edit Button-->
   <div>
