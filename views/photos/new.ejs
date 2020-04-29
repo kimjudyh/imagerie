@@ -1,43 +1,48 @@
 <%- include('../partials/_head') %>
-<main>
+<main class="container">
   <h1>Add a New Photo</h1>
-  <div>
-    <!--New Inputs-->
-    <!-- <form action="/albums/<%= albumId %>/photos" method="POST"> -->
+  <div class="row">
+    <div class="col-sm-6">
+      <!--New Inputs-->
       <!--enctype form-->
-    <form action="/albums/<%= albumId %>/photos" enctype="multipart/form-data" method="POST">
-      <!--File Upload-->
-      <div>
-        <!--TODO: allow only one upload option-->
-        <label for="image">Upload a Picture</label>
-        <br/>
-        <input type="file" name="image">
-      </div>
-      <!--URL input-->
-      <div>
-        <label for="url">Or Use a Url: </label>
-        <br/>
-        <input type="text" id="url" name="url" >
-      </div>
-      <div>
-        <label for="date">Date: </label>
-        <br/>
-        <input type="date" id="date" name="date">
-      </div>
-      <div>
-        <label for="location">Location: </label>
-        <br/>
-        <input type="text" id="location" name="location" required>
-      </div>
-      <div>
-        <label for="description">Description: </label>
-        <br/>
-        <textarea name="description" id="description" cols="30" rows="10" required></textarea>
-      </div>
-      <!--Submit-->
-      <button type="submit">Submit</button>
-    </form>
-    <!--TODO: cancel button-->
+      <form action="/albums/<%= albumId %>/photos" enctype="multipart/form-data" method="POST">
+        <!--File Upload-->
+        <div class="form-group">
+          <!--TODO: allow only one upload option-->
+          <label for="image">Upload a Picture</label>
+          <br/>
+          <input type="file" name="image">
+        </div>
+        <!--URL input-->
+        <div class="form-group">
+          <label for="url">Or Use a Url: </label>
+          <br/>
+          <input class="form-control" type="text" id="url" name="url" >
+        </div>
+        <!--Date-->
+        <div class="form-group">
+          <label for="date">Date: </label>
+          <br/>
+          <input class="form-control" type="date" id="date" name="date">
+        </div>
+        <!--Location-->
+        <div class="form-group">
+          <label for="location">Location: </label>
+          <br/>
+          <input class="form-control" type="text" id="location" name="location" required>
+        </div>
+        <!--Description-->
+        <div class="form-group">
+          <label for="description">Description: </label>
+          <br/>
+          <textarea class="form-control" name="description" id="description" cols="30" rows="7" required></textarea>
+        </div>
+        <!--Submit-->
+        <button type="submit">Submit</button>
+      </form>
+      <!--cancel button-->
+      <a href="/albums"><button>Cancel</button></a>
+    </div>
   </div>
 </main>
 <%- include('../partials/_footer') %>
