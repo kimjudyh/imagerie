@@ -1,8 +1,16 @@
+
 <%- include('../partials/_head') %>
+<div class="container">
 <main>
   <h1>Edit Photo</h1>
   <div>
     <form action="/albums/<%= photo.album %>/photos/<%= photo._id%>?_method=PUT" method="POST">
+      <!-- <div class="form-group row ele">
+        <label for="colFormLabel" class="col-sm-2 col-form-label">Url</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="url colFormLabel" name="url" required value="<%= photo.url%>">
+        </div>
+      </div> -->
       <div>
         <label for="url">Url: </label>
         <br/>
@@ -27,4 +35,5 @@
     </form>
   </div>
 </main>
+</div>
 <%- include('../partials/_footer') %>
