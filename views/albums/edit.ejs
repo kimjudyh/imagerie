@@ -1,5 +1,5 @@
 <%- include('../partials/_head') %>
-<main>
+<main class="container">
   <h1>Edit Album</h1>
   <div>
     <!--Edit Inputs-->
@@ -32,15 +32,15 @@
       </div>
       <!--Create New Photo-->
       <div>
-        <a href="/albums/<%= album._id %>/photos/new">Add New Photo</a>
+        <a href="/albums/<%= album._id %>/photos/new"><button class="add">Add New Photo</button></a>
       </div>
       <!--Submit Changes-->
-      <button type="submit">Submit</button>
+      <button class="submit" type="submit">Submit</button>
     </form>
     <!--Delete Album-->
     <div>
       <form action="/albums/<%= album._id %>?_method=DELETE" method="POST">
-        <button type="submit">Delete Album</button>
+        <button class="delete" type="submit">Delete Album</button>
       </form>
     </div>
     <!--TODO: cancel button-->
