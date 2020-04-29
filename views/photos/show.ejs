@@ -23,7 +23,8 @@
       <%= photo.date.toLocaleDateString() %>
       <% } %>
     </div>
-    <div>
+  </div>
+    <div class="photo-navigation">
       <!--Previous Photo Link-->
       <% if (photoPosition > 0) {%>
         <a href="/albums/<%= photo.album %>/photos/<%= albumPhotosArray[photoPosition - 1]%>">Previous Photo</a> | 
@@ -52,6 +53,5 @@
     </form>
   </div>
 
-  </div>
 </main>
 <%- include('../partials/_footer') %>
