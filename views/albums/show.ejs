@@ -1,9 +1,10 @@
 <%- include('../partials/_head') %>
 <main class="container">
   <div>
+    <!--Album Name-->
     <h1> <%= album.albumName %> </h1>
     <div class="album-show-buttons">
-      <!--Edit Album Link-->
+      <!--Edit Album-->
       <a href="/albums/<%= album._id %>/edit"><button>Edit Album</button></a>
       <!--Delete Album-->
       <form action="/albums/<%= album._id %>?_method=DELETE" method="POST">
@@ -16,14 +17,15 @@
     <p><%= album.description %></p>
   </div>
   <!--Show Photo thumbnails-->
-  <div class="thumbnails">
+  <div class="album-card-group">
+  <!-- <div class="thumbnails"> -->
     <% albumPhotos.forEach((albumPhoto) => { %>
-      <a href="/albums/<%= album._id %>/photos/<%= albumPhoto._id %>">
-        <img src="<%= albumPhoto.url %>" alt=""/>
+      <div class="card" style="width: 300px;">
+        <a href="/albums/<%= album._id %>/photos/<%= albumPhoto._id %>">
+        <img class="card-img" src="<%= albumPhoto.url %>" alt=""/>
       </a>
+      </div>
     <% }) %>
-  </div>
-  <div>
   </div>
 </main>
 <%- include('../partials/_footer') %>
