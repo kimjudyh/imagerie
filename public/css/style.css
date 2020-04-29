@@ -9,18 +9,13 @@ gray: rgb(242, 240, 242)
 body {
   margin: 0;
   padding: 0;
-  background: rgb(196, 255, 234, .3);
+  /* background: rgb(196, 255, 234, .3); */
   font-family: 'Raleway', sans-serif;
   /* margin-left: 20px; */
   color: black;
 }
 
-.home {
-  height: 100vh;
-  background: url(bg2.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
-}
+
 
 img {
   max-width: 40vw;
@@ -57,6 +52,7 @@ img {
   /* color:#fff */
 }
 
+
 .banner-home {
   background: transparent;
 }
@@ -65,6 +61,15 @@ img {
   margin-top: 3%;
 } */
 
+
+/* home page and navbar */
+.home {
+  height: 100vh;
+  background: url(bg.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
 .banner .navbar-brand {
   font-size: 1.6em;
   font-weight: 700;
@@ -72,21 +77,51 @@ img {
 }
 
 .banner-home .navbar-brand {
-  color:#FFF;
+  color:#fff;
+  z-index: 2;
 }
 
 .banner .nav {
   margin-right: 10%;
+  z-index: 2;
 }
 
 .banner .nav li a {
-  color:#aaa;
+  color:#fff;
   font-size: 1.2em;
+ 
 }
+
 
 .banner a:hover {
   text-decoration: underline;
 }
+
+/* start of central data on home page */
+.info{
+  margin-top:15%;
+   transform: translateY(-15%);
+   /* background-color:rgb(70, 70, 70, .3); */
+   z-index: 2;
+}
+.info h1{
+  font-size: 2.5em;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 2px;
+}
+.info p{
+  color: #fff;
+  }
+.info a {
+  margin-left: 50%;
+  transform: translatex(-50%);
+ color: #fff;
+}
+/* end of central data on home page */
+
+/* end of home page and navbar */
+
 
 button {
   background-color:rgb(242, 240, 242);
@@ -131,31 +166,51 @@ button:hover {
   overflow: hidden;
 }
 
-.info {
-  margin-top:15%;
-  transform: translateY(-15%);
-  /* background-color:rgb(70, 70, 70, .4); */
-}
 
-.info h1 {
-  font-size: 2.5em;
-  font-weight: 700;
-  color: #fff;
-  letter-spacing: 2px;
-}
-.info p {
-  /* font-size: 2em; */
-  /* font-weight: 300; */
-  color: #aaa;
-  /* letter-spacing: 2px; */
-}
-
-.info a {
-  margin-left: 50%;
-  transform: translatex(-50%);
-  color: #aaa;
-}
-
-.down {
+.down{
   margin-top: 20%;
+}
+
+/* start of login page */
+.min{
+  height: 100vh;
+  background: url(moun.jpg) no-repeat;
+  background-size: cover;
+  position: relative;
+
+}
+.login-box{
+position: absolute;
+top: 40%;
+left: 50%;
+transform: translate(-50px, -50px);
+color: #fff;
+z-index: 2;
+}
+.login-box h1{
+  float:left;
+  font-size: 40px;
+  border-bottom: 6px solid #fff;
+  margin-bottom: 25px;
+  padding: 13px 0;
+}
+.textbox{
+  width: 100%;
+  overflow: hidden;
+  font-size: 20px;
+  padding: 6px;
+  margin: 8px 0;
+  border-bottom: 1px solid #fff;
+}
+
+/* end og login page */
+.overlay{
+  position: absolute;
+  background:#050e1c70;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left:0;
+  Z-index: 1;
+
 }
