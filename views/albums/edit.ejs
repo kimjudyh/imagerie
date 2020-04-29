@@ -52,9 +52,17 @@
   <div class="album-card-group">
     <% albumPhotos.forEach((albumPhoto) => { %>
       <div class="card" style="width: 300px;">
-        <!-- <div class="card-img-top"> -->
-          <img class="card-img" src="<%= albumPhoto.url%>" alt="image">
-        <!-- </div> -->
+        <img class="card-img" src="<%= albumPhoto.url%>" alt="image">
+        <div class="card-img-overlay">
+          <!--Edit-->
+          <a href="/albums/<%= album._id %>/photos/<%= albumPhoto._id %>/edit"><button>Edit</button></a>
+          <!--Delete-->
+          <div>
+            <form action="/albums/<%= album._id %>/photos/<%= albumPhoto._id %>?_method=DELETE" method="POST">
+              <button class="delete" type="submit">Delete</button>
+            </form>
+          </div>
+        </div>
       </div>
     <% })%>
   </div>
