@@ -106,19 +106,20 @@ router.get('/:albumid/photos/:id', async (req, res) => {
     if (!req.session.currentUser) {
       return res.redirect('/auth/login');
     };
+    console.log(req.params.id)
     // get specific photo from db
     const foundPhoto = await db.Photo.findById(req.params.id);
     // get album that contains this photo from db
     const foundAlbum = await db.Album.findById(req.params.albumid);
     // use Album.photos array to navigate to previous, next photo
-    const albumPhotosArray = foundAlbum.photos;
+    const albumPhotosArray = await foundAlbum.photos;
     // find this photo's position in the photos array
-    const foundPhotoPosition = foundAlbum.photos.indexOf(req.params.id);
-    console.log('index of photo', foundPhotoPosition);
+    const foundPhotoPosition = await foundAlbum.photos.indexOf(req.params.id);
 
     res.render('photos/show', {
       title: 'Show Photo',
       photo: foundPhoto,
+      albumName: foundAlbum.albumName,
       albumPhotosArray: albumPhotosArray, 
       photoPosition: foundPhotoPosition,
     });
@@ -192,6 +193,10 @@ router.delete('/:albumid/photos/:id', async (req, res) => {
     };
     // delete photo object
     const deletedPhoto = await db.Photo.findByIdAndDelete(req.params.id);
+    // remove photo id from albums photos array
+    const foundAlbum = await db.Album.findById(req.params.albumid);
+    const deletedPhotoIndex = foundAlbum.photos.pull({_id: req.params.id});
+    const savedAlbum = await foundAlbum.save();
     // TODO: delete cloud version of picture
     // TODO: if user deleted from album edit, redirect there
     // redirect to album that photo was in
