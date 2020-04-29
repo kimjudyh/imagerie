@@ -1,27 +1,31 @@
 <%- include('../partials/_head') %>
-<main>
+<main class="container">
   <!--TODO: replace User w/ username-->
   <h2>Welcome, <%= username %></h2>
   <h3>Profile Page</h3>
-<a href="/albums/new">Add a New Album</a>
+<a href="/albums/new"><button>+ New Album</button></a>
 
-<div>
+<div class="album-card-group">
   <% albums.forEach((album) => { %>
-    <div>
-      <%= album.albumName %>
-      <nav>
-        <ul>
-          <li>
-            <a href="/albums/<%= album._id %>">View Album</a>
-          </li>
-          <li>
-            <a href="/albums/<%= album._id %>/edit">Edit Album</a>
-          </li>
-          <li>
-            <a href="/albums/<%= album._id %>/photos/new">Add Photo</a>
-          </li>
-        </ul>
-      </nav>
+    <div class="album-card card" style="width: 200px;">
+      <div class="card-body">
+        <h5 class="card-title"><%= album.albumName %></h5>
+        <h6 class="card-subtitle"><%= album.location %></h6>
+      
+        <nav>
+          <ul>
+            <li>
+              <a href="/albums/<%= album._id %>">View Album</a>
+            </li>
+            <li>
+              <a href="/albums/<%= album._id %>/edit">Edit Album</a>
+            </li>
+            <li>
+              <a href="/albums/<%= album._id %>/photos/new">Add Photo</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
     </div>
   <% }) %>
 </div>

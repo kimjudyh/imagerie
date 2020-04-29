@@ -1,25 +1,29 @@
 <%- include('../partials/_head') %>
-<main>
+<main class="container">
   <div>
-    <h1>Album View</h1>
-    <!--Edit Album Link-->
-    <a href="/albums/<%= album._id %>/edit">Edit Album</a>
+    <h1> <%= album.albumName %> </h1>
+    <div class="album-show-buttons">
+      <!--Edit Album Link-->
+      <a href="/albums/<%= album._id %>/edit"><button>Edit Album</button></a>
+      <!--Delete Album-->
+      <form action="/albums/<%= album._id %>?_method=DELETE" method="POST">
+        <button type="submit">Delete Album</button>
+      </form>
+    </div>
     <!--Album Properties-->
     <h4>Date: <%= album.date.toLocaleDateString() %></h4>
     <h4>Location: <%= album.location %></h4>
     <p><%= album.description %></p>
   </div>
   <!--Show Photo thumbnails-->
-  <div>
+  <div class="thumbnails">
     <% albumPhotos.forEach((albumPhoto) => { %>
-    <a href="/albums/<%= album._id %>/photos/<%= albumPhoto._id %>"><img src="<%= albumPhoto.url %>" alt=""></a>
+      <a href="/albums/<%= album._id %>/photos/<%= albumPhoto._id %>">
+        <img src="<%= albumPhoto.url %>" alt=""/>
+      </a>
     <% }) %>
   </div>
-  <!--Delete Album-->
   <div>
-    <form action="/albums/<%= album._id %>?_method=DELETE" method="POST">
-      <button type="submit">Delete Album</button>
-    </form>
   </div>
 </main>
 <%- include('../partials/_footer') %>

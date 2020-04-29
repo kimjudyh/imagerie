@@ -1,49 +1,58 @@
 <%- include('../partials/_head') %>
-<main>
+<main class="container">
   <h1>Edit Album</h1>
-  <div>
-    <!--Edit Inputs-->
-    <form action="/albums/<%= album._id %>?_method=PUT" method="POST">
-      <div>
-        <label for="albumName">Album Name: </label>
-        <br />
-        <input type="text" id="albumName" name="albumName" value="<%= album.albumName %>" required>
+  <div class="row">
+    <div class="col-md">
+    
+      <!--Edit Inputs-->
+      <form action="/albums/<%= album._id %>?_method=PUT" method="POST">
+        <div>
+          <label for="albumName">Album Name: </label>
+          <br />
+          <input type="text" id="albumName" name="albumName" value="<%= album.albumName %>" required>
+        </div>
+        <div>
+          <label for="date">Date: </label>
+          <br />
+          <input type="date" id="date" name="date" value="<%= albumDateString %>" required>
+        </div>
+        <div>
+          <label for="location">Location: </label>
+          <br />
+          <input type="text" id="location" name="location" value="<%= album.location %>" required>
+        </div>
       </div>
-      <div>
-        <label for="date">Date: </label>
-        <br />
-        <input type="date" id="date" name="date" value="<%= albumDateString %>" required>
-      </div>
-      <div>
-        <label for="location">Location: </label>
-        <br />
-        <input type="text" id="location" name="location" value="<%= album.location %>" required>
-      </div>
-      <div>
+      <div class="col-md">
+        <div>
         <label for="description">Description: </label>
         <br />
-        <textarea name="description" id="description" cols="30" rows="10" required><%= album.description %></textarea>
+        <textarea name="description" id="description" cols="30" rows="6" required><%= album.description %></textarea>
       </div>
-      <div>
-        <% albumPhotos.forEach((albumPhoto) => { %>
-        <img src="<%= albumPhoto.url%>" alt="image">
-
-        <% })%>
+      </div>
+    </div>
+      <!--Display Photos-->
+      <div class="card">
+        <div class="card-img-top">
+          <% albumPhotos.forEach((albumPhoto) => { %>
+            <img src="<%= albumPhoto.url%>" alt="image">
+          <% })%>
+        </div>
       </div>
       <!--Create New Photo-->
       <div>
-        <a href="/albums/<%= album._id %>/photos/new">Add New Photo</a>
+        <a href="/albums/<%= album._id %>/photos/new"><button class="add">Add New Photo</button></a>
       </div>
       <!--Submit Changes-->
-      <button type="submit">Submit</button>
+      <button class="submit" type="submit">Submit</button>
     </form>
     <!--Delete Album-->
     <div>
       <form action="/albums/<%= album._id %>?_method=DELETE" method="POST">
-        <button type="submit">Delete Album</button>
+        <button class="delete" type="submit">Delete Album</button>
       </form>
     </div>
     <!--TODO: cancel button-->
+    <a href="/albums"><button>Cancel</button></a>
   </div>
 </main>
 <%- include('../partials/_footer') %>
