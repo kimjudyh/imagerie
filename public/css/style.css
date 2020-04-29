@@ -53,9 +53,9 @@ img {
   background: transparent;
 }
 
-/* .banner .navbar {
+.banner .navbar {
   margin-top: 3%;
-} */
+}
 
 .banner .navbar-brand {
   font-size: 1.6em;
@@ -74,4 +74,8 @@ img {
 .banner .nav li a {
   color:#aaa;
   font-size: 1.2em;
+}
+.ele{
+  margin-left: 20px;
+  margin-right: 50px;
 }
