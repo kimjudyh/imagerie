@@ -20,7 +20,7 @@
   <div class="album-card-group">
   <!-- <div class="thumbnails"> -->
     <% albumPhotos.forEach((albumPhoto) => { %>
-      <div class="card" style="width: 300px;">
+      <div class="card h-100" style="width: 300px;">
         <a href="/albums/<%= album._id %>/photos/<%= albumPhoto._id %>">
         <img class="card-img" src="<%= albumPhoto.url %>" alt=""/>
       </a>
