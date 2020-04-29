@@ -101,6 +101,10 @@ button {
   transition: .2s linear;
 }
 
+.small-button {
+  width: 80px;
+}
+
 /* .add {
   background-color: rgb(167, 232, 191, .5);
 }
