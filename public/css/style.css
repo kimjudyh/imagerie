@@ -121,6 +121,7 @@ button:hover {
 .album-card-group {
   display: flex;
   flex-wrap: wrap;
+  justify-content: flex-start;
 }
 
 .album-card-group .card {
@@ -131,6 +132,11 @@ button:hover {
   list-style: none;
   padding: 0;
 }
+
+.album-card-group img {
+  overflow: hidden;
+}
+
  .info{
   margin-top:15%;
    transform: translateY(-15%);
