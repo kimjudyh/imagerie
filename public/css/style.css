@@ -56,8 +56,7 @@ img {
 }
 .banner .nav{
   margin-right: 10%;
-  border: 2px solid white;
-}
+  }
 .banner .nav li a{
   color:#aaa;
   font-size: 1.2em;
