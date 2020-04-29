@@ -18,10 +18,8 @@ body {
 
 
 img {
-  max-width: 40vw;
-  max-height: 40vh;
-  width: auto;
-  height: auto;
+  max-width: 90vw;
+  max-height: 90vh;
 }
 
 /* .thumbnail img{
@@ -38,13 +36,12 @@ img {
 
 .photo-navigation {
   display: flex;
+  justify-content: space-evenly;
 }
 
-.show-body__img img {
-  max-width: 90vw;
-  max-height: 80vh;
-  width: auto;
-  height: auto; 
+.show-body__img {
+  display: flex;
+  justify-content: center;
 }
 
 .banner, .banner-home{
@@ -65,7 +62,7 @@ img {
 /* home page and navbar */
 .home {
   height: 100vh;
-  background: url(bg.jpg);
+  background: url(bg2.jpg);
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -87,7 +84,7 @@ img {
 }
 
 .banner .nav li a {
-  color:#fff;
+  /* color:#fff; */
   font-size: 1.2em;
  
 }
