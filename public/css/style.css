@@ -35,10 +35,14 @@ img {
   height: 100px;
 } */
 
-.show-body {
+/* .show-body {
   display: flex;
   align-items: center;
-  justify-content: center;;
+  justify-content: center;
+} */
+
+.photo-navigation {
+  display: flex;
 }
 
 .show-body__img img {
