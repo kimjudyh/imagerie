@@ -193,7 +193,9 @@ router.delete('/:albumid/photos/:id', async (req, res) => {
     // delete photo object
     const deletedPhoto = await db.Photo.findByIdAndDelete(req.params.id);
     // TODO: delete cloud version of picture
+    // TODO: if user deleted from album edit, redirect there
     // redirect to album that photo was in
+    console.log(req.url);
     res.redirect(`/albums/${req.params.albumid}`);
 
   } catch (err) {
