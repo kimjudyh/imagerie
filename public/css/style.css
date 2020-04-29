@@ -1,10 +1,17 @@
 body {
   margin: 0;
   padding: 0;
-  background:#fff;
+  /* background:#fff; */
   font-family: 'Raleway', sans-serif;
-    color:#fff
   /* margin-left: 20px; */
+  color: black;
+}
+
+.home {
+  height: 100vh;
+  background: url(bg.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
  /* .header__nav {
@@ -20,6 +27,7 @@ body {
 .header__nav li {
   margin: 5px 10px;
 }
+*/
 
 img {
   max-width: 40vw;
@@ -32,32 +40,38 @@ img {
   max-width: 80vw;
   max-height: 70vh;
   width: auto;
-  height: auto; */
-/* }  */
-.banner{
-  height: 100vh;
+  height: auto; 
+}
+
+.banner, .banner-home{
+  /* background-color: lightgoldenrodyellow; */
   width: 100%;
-  background: url(bg.jpg);
-  background-position: top;
-  background-size: cover;
-  background-repeat: no-repeat;
-
-
+  /* color:#fff */
 }
-.banner .navbar{
+
+.banner-home {
+  background: transparent;
+}
+
+/* .banner .navbar {
   margin-top: 3%;
-}
+} */
 
-.banner .navbar-brand{
-  color:#FFF;
+.banner .navbar-brand {
   font-size: 1.6em;
   font-weight: 700;
   margin-left: 8%;
 }
-.banner .nav{
+
+.banner-home .navbar-brand {
+  color:#FFF;
+}
+
+.banner .nav {
   margin-right: 10%;
-  }
-.banner .nav li a{
+}
+
+.banner .nav li a {
   color:#aaa;
   font-size: 1.2em;
 }
