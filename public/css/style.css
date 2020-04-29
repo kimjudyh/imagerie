@@ -1,3 +1,4 @@
+
 /* Color Template 
 green rgb(196, 255, 234) or #C4FFEA
 blue rgb(167, 232, 228) or #A7E8E4
@@ -74,7 +75,7 @@ img {
 }
 
 .banner-home .navbar-brand {
-  color:#fff;
+  color:#aaa;
   z-index: 2;
 }
 
@@ -84,7 +85,7 @@ img {
 }
 
 .banner .nav li a {
-  /* color:#fff; */
+  color:#aaa;
   font-size: 1.2em;
  
 }
@@ -98,7 +99,6 @@ img {
 .info{
   margin-top:15%;
    transform: translateY(-15%);
-   /* background-color:rgb(70, 70, 70, .3); */
    z-index: 2;
 }
 .info h1{
@@ -140,7 +140,6 @@ button {
 }
 
 button:hover {
-  /* opacity: .9; */
   filter: brightness(95%);
 }
 
@@ -199,6 +198,7 @@ z-index: 2;
   margin: 8px 0;
   border-bottom: 1px solid #fff;
 }
+
 
 /* end og login page */
 .overlay{
