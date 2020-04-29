@@ -1,7 +1,14 @@
+/* Color Template 
+green rgb(196, 255, 234) or #C4FFEA
+blue rgb(167, 232, 228) or #A7E8E4
+green rgb(167, 232, 191) or #A7E8BF
+error red: rgb(255, 138, 133) or #FF8A85
+beige: rgb(255, 218, 184) or #FFDAB8
+*/
 body {
   margin: 0;
   padding: 0;
-  /* background:#fff; */
+  background: rgb(196, 255, 234, .3);
   font-family: 'Raleway', sans-serif;
   /* margin-left: 20px; */
   color: black;
@@ -74,4 +81,31 @@ img {
 .banner .nav li a {
   color:#aaa;
   font-size: 1.2em;
+}
+
+button {
+  outline: none;
+  border: none;
+  border-radius: 10px;
+  padding: 5px 8px;
+  margin: 5px 8px;
+  width: 140px;
+  transition: .3s linear;
+}
+
+.add {
+  background-color: rgb(167, 232, 191, .5);
+}
+
+.submit {
+  background-color: rgb(167, 232, 228, .5);
+}
+
+.delete {
+  background-color: rgb(255, 138, 133, .5);
+}
+
+button:hover {
+  /* opacity: .9; */
+  filter: brightness(85%);
 }

@@ -1,14 +1,16 @@
 <%- include('../partials/_head') %>
-<main>
+<main class="container">
   <!--TODO: replace User w/ username-->
   <h2>Welcome, <%= username %></h2>
   <h3>Profile Page</h3>
-<a href="/albums/new">Add a New Album</a>
+<a href="/albums/new"><button>+ New Album</button></a>
 
-<div>
+<div class="album-card-group container">
   <% albums.forEach((album) => { %>
-    <div>
-      <%= album.albumName %>
+    <div class="album-card card">
+      <h5 class="card-title"><%= album.albumName %></h5>
+      
+
       <nav>
         <ul>
           <li>
