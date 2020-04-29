@@ -98,7 +98,6 @@ img {
 .info{
   margin-top:15%;
    transform: translateY(-15%);
-   /* background-color:rgb(70, 70, 70, .3); */
    z-index: 2;
 }
 .info h1{
@@ -140,7 +139,6 @@ button {
 }
 
 button:hover {
-  /* opacity: .9; */
   filter: brightness(95%);
 }
 
