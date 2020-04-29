@@ -132,3 +132,7 @@ button:hover {
   list-style: none;
   padding: 0;
 }
+
+.album-card-group img {
+  overflow: hidden;
+}
