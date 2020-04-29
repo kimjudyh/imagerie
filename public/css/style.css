@@ -121,6 +121,7 @@ button:hover {
 .album-card-group {
   display: flex;
   flex-wrap: wrap;
+  justify-content: flex-start;
 }
 
 .album-card-group .card {
