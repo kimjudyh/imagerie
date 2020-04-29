@@ -4,6 +4,7 @@ blue rgb(167, 232, 228) or #A7E8E4
 green rgb(167, 232, 191) or #A7E8BF
 error red: rgb(255, 138, 133) or #FF8A85
 beige: rgb(255, 218, 184) or #FFDAB8
+gray: rgb(242, 240, 242)
 */
 body {
   margin: 0;
@@ -41,6 +42,12 @@ img {
   max-height: 40vh;
   width: auto;
   height: auto;
+}
+
+.thumbnail img{
+  max-width: 200px;
+  width: auto;
+  height: 100px;
 }
 
 .show-body__img img {
@@ -84,22 +91,23 @@ img {
 }
 
 button {
+  background-color:rgb(242, 240, 242);
   outline: none;
   border: none;
   border-radius: 10px;
   padding: 5px 8px;
   margin: 5px 8px;
   width: 140px;
-  transition: .3s linear;
+  transition: .2s linear;
 }
 
-.add {
+/* .add {
   background-color: rgb(167, 232, 191, .5);
 }
 
 .submit {
-  background-color: rgb(167, 232, 228, .5);
-}
+  background-color:rgb(242, 240, 242);
+} */
 
 .delete {
   background-color: rgb(255, 138, 133, .5);
@@ -107,5 +115,19 @@ button {
 
 button:hover {
   /* opacity: .9; */
-  filter: brightness(85%);
+  filter: brightness(95%);
+}
+
+.album-card-group {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.album-card-group .card {
+  margin: 10px;
+}
+
+.album-card-group ul {
+  list-style: none;
+  padding: 0;
 }
