@@ -1,35 +1,36 @@
 <%- include('../partials/_head') %>
 <main class="dark-theme container">
   <div>
+    <!--Back to Albums-->
+    <h5><a href="/albums">Back to Albums</a></h5>
     <!--Album Name-->
     <div class="view-title">
       <h1> <%= album.albumName %> </h1>
     </div>
     <!--Album Properties-->
-    <div class="row align-items-center justify-content-center">
-      <div class="col-sm">
+    <div class="album-properties-group">
+      <div>
         <strong>Date:</strong> <%= album.date.toLocaleDateString() %>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-sm">
+      <div> 
         <strong>Location:</strong> <%= album.location %>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-sm">
+      <div>
         <p><%= album.description %></p>
       </div>
     </div>
-    </div>
   </div>
   <!--Buttons-->
-  <div class="button-group row align-items-center justify-content-center">
+  <div class="button-group">
+    <!--Create New Photo-->
+    <div>
+      <a href="/albums/<%= album._id %>/photos/new"><button class="add">New Photo</button></a>
+    </div>
     <!--Edit Album-->
-    <div class="col-auto">
+    <div>
       <a href="/albums/<%= album._id %>/edit"><button>Edit Album</button></a>
     </div>
-    <div class="col-sm">
+    <div>
       <!--Delete Album-->
       <form action="/albums/<%= album._id %>?_method=DELETE" method="POST">
         <button class="delete" type="submit">Delete Album</button>
