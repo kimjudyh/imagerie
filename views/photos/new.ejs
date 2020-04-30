@@ -1,7 +1,9 @@
 <%- include('../partials/_head') %>
-<main class="container">
-  <h1>Add a New Photo</h1>
-  <div class="row">
+<main class="dark-theme container">
+  <div class="view-title">
+    <h1>Add a New Photo</h1>
+  </div>
+  <div class="row align-items-center justify-content-center">
     <div class="col-sm-6">
       <!--New Inputs-->
       <!--enctype form-->
@@ -11,7 +13,7 @@
           <!--TODO: allow only one upload option-->
           <label for="image">Upload a Picture</label>
           <br/>
-          <input type="file" name="image">
+          <input type="file" name="image" >
         </div>
         <!--URL input-->
         <div class="form-group">
@@ -29,19 +31,22 @@
         <div class="form-group">
           <label for="location">Location: </label>
           <br/>
-          <input class="form-control" type="text" id="location" name="location" required>
+          <input class="form-control" type="text" id="location" name="location">
         </div>
         <!--Description-->
         <div class="form-group">
           <label for="description">Description: </label>
           <br/>
-          <textarea class="form-control" name="description" id="description" cols="30" rows="7" required></textarea>
+          <textarea class="form-control" name="description" id="description" cols="30" rows="7" ></textarea>
         </div>
-        <!--Submit-->
-        <button type="submit">Submit</button>
-      </form>
-      <!--cancel button-->
-      <a href="/albums"><button>Cancel</button></a>
+        <div class="button-group">
+          <!--Submit-->
+          <button type="submit">Submit</button>
+          <!--cancel button-->
+          <a href="/albums"><button>Cancel</button></a>
+        </form>
+  
+        </div>
     </div>
   </div>
 </main>

@@ -19,30 +19,28 @@
 
 <body>
 
-<main class="min">
+<main class="auth-form">
   <!-- nav -->
 
-  <div class="container-fluid banner banner-home">
+  <div class="container-fluid banner banner-home fixed-top">
     <div class="row">
       <div class="col-md-12">
-        <nav class="navbar navbar-md">
-         <div class="navbar-brand">PHOTO APP</div>
-           <ul class="nav">
-            <li class="nav-item">
-              <a href="/" class="nav-link">Home</a>
+
+        <nav class="navbar navbar-md ">
+          <div class="navbar-brand"><a href="/">PHOTO APP</a></div>
+            <ul class="nav">
+              <li class="nav-item">
+                <a href="/" class="nav-link">Home</a>
             </li>
             <li class="nav-item">
               <a href="/auth/register" class="nav-link">Sign Up</a>
             </li>
-           
-           
-  
-          </ul>
-        
-      </nav>
+            </ul>
+          </div>
+        </nav>
+
     </div>
-      </div>
-    </div>
+  </div>
 
 
 <% if (typeof error !== 'undefined') { %>
@@ -53,7 +51,7 @@
 <%}%>
 
 <!-- start of our form -->
-<div class="login-box">
+<div class="dark-theme login-box">
   <h1> Login</h1>
 
   <form action="/auth/login" method="POST">
