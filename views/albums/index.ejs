@@ -1,35 +1,34 @@
-<div class="profile">
+<!-- <div class="profile"> -->
 <%- include('../partials/_head') %>
-<main class="container col-md-10 offset-md-1" id="pro">
-  <!--TODO: replace User w/ username-->
-  <div class="title">
+<!-- <main class="container col-md-10 offset-md-1" id="pro"> -->
+<main class="dark-theme container">
+  <div class="view-title">
   <h2 >Welcome, <%= username %></h2>
-  <h3 >Profile Page</h3>
-<a href="/albums/new">New Album</a>
-</div>
-<div class="container album-card-group">
-  <% albums.forEach((album) => { %>
-    <div class="album-card card" style="width: 200px;">
-      <div class="card-body">
-        <h5 class="card-title"><a href="/albums/<%= album._id %>"><%= album.albumName %></a></h5>
-        <h6 class="card-subtitle"><%= album.location %></h6>
-        <nav>
-          <ul>
-            <li>
-              <a href="/albums/<%= album._id %>/edit"><button>Edit Album</button></a>
-            </li>
-            <li>
-              <a href="/albums/<%= album._id %>/photos/new"><button>New Photo</button></a>
-            </li>
-          </ul>
-        </nav>
+  <a href="/albums/new">New Album</a>
+  </div>
+  <div class="container album-card-group">
+    <% albums.forEach((album) => { %>
+      <div class="album-card card" style="width: 200px;">
+        <div class="card-body">
+          <h5 class="card-title"><a href="/albums/<%= album._id %>"><%= album.albumName %></a></h5>
+          <h6 class="card-subtitle"><%= album.location %></h6>
+          <nav>
+            <ul>
+              <li>
+                <a href="/albums/<%= album._id %>/edit"><button>Edit Album</button></a>
+              </li>
+              <li>
+                <a href="/albums/<%= album._id %>/photos/new"><button>New Photo</button></a>
+              </li>
+            </ul>
+          </nav>
+        </div>
       </div>
-    </div>
-  <% }) %>
-</div>
+    <% }) %>
+  </div>
 
 </main>
-<div class="overlay" id="overlay"></div>
-</div>
+<!-- <div class="overlay" id="overlay"></div> -->
+<!-- </div> -->
 
 <%- include('../partials/_footer') %>

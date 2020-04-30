@@ -1,6 +1,8 @@
 <%- include('../partials/_head') %>
-<main class="container">
-  <h1>Edit Album</h1>
+<main class="dark-theme container">
+  <div class="view-title">
+    <h1>Edit Album</h1>
+  </div>
   <div class="row">
     <div class="col-md">
       <!--Edit Inputs-->
@@ -21,7 +23,7 @@
         <div class="form-group">
           <label for="location">Location: </label>
           <br />
-          <input class="form-control" type="text" id="location" name="location" value="<%= album.location %>" required>
+          <input class="form-control" type="text" id="location" name="location" value="<%= album.location %>">
         </div>
     </div>
     <div class="col-md">
@@ -39,7 +41,7 @@
     </form>
     <!--Create New Photo-->
     <div>
-      <a href="/albums/<%= album._id %>/photos/new"><button class="add">Add New Photo</button></a>
+      <a href="/albums/<%= album._id %>/photos/new"><button class="add">New Photo</button></a>
     </div>
     <!--Delete Album-->
     <div>
