@@ -1,8 +1,8 @@
 <%- include('../partials/_head') %>
-<main class="container">
+<main class="container dark-theme">
   <!--Photo Properties-->
     <h1><%= albumName %></h1>
-    <a href="/albums/<%=photo.album %>">Back to Album</a>
+    <h5><a href="/albums/<%=photo.album %>">Back to Album</a></h5>
     <div class="photo-navigation">
       <!--Previous Photo Link-->
       <% if (photoPosition > 0) {%>
@@ -21,20 +21,16 @@
   <div class="show-body__img">
     <img class="img-fluid" src="<%= photo.url%>" alt="image">
   </div>
-  <div class="show-body">
-    <div>
+  <div class="show-body row">
+    <div class="col-md justify-content-center">
       <strong>Description: </strong>
-      <p>
         <%= photo.description %>
-      </p>
     </div>
-    <div>
+    <div class="col-md justify-content-center">
       <strong>Location: </strong>
-      <p>
         <%= photo.location %>
-      </p>
     </div>
-    <div>
+    <div class="col-md justify-content-center">
       <Strong>Date:</Strong>
       <% if (photo.date) { %>
       <%= photo.date.toLocaleDateString() %>
