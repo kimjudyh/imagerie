@@ -226,6 +226,8 @@ button:focus {
 
 /* end of home page and navbar */
 
+
+
 /*====== AUTHENTICATION FORMS ======*/
 /* start of login page */
 .error-message {
@@ -251,7 +253,7 @@ button:focus {
   background-color: #27272799;
   position: absolute;
   top: 30%;
-  left: 40%;
+  left: 38%;
   /* transform: translate(-50px, -50px); */
   color: #f1f1f1DE;
   z-index: 2;
@@ -299,6 +301,16 @@ left: 40%;
   float: right;
  
 }
+
+/* changing position for login */
+@media screen and (max-width: 0px) {
+  .login-box {
+    position: absolute;
+    left:17%;
+    
+  }
+}
+
  /* end */
 
  /* start of index page of album */
