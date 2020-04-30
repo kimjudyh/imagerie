@@ -1,5 +1,5 @@
 <%- include('../partials/_head') %>
-<main class="container dark-theme">
+<main class="dark-theme container">
   <div>
     <!--Album Name-->
     <h1> <%= album.albumName %> </h1>
@@ -8,6 +8,8 @@
       <div class="col-sm">
         <strong>Date:</strong> <%= album.date.toLocaleDateString() %>
       </div>
+    </div>
+    <div class="row">
       <div class="col-sm">
         <strong>Location:</strong> <%= album.location %>
       </div>
