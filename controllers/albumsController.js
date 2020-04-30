@@ -58,7 +58,7 @@ router.post('/', async (req, res) => {
     const savedAlbum = await createAlbum.save();
     console.log('saved album: ', savedAlbum);
 
-    res.redirect('/albums')
+    res.redirect(`/albums/${createAlbum._id}`)
 
   } catch (err) {
     return res.send(err)

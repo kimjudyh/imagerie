@@ -2,6 +2,8 @@
 <main class="dark-theme container">
   <div class="view-title">
     <h1>Edit Photo</h1>
+      <!--Cancel-->
+      <a href="/albums/<%= photo.album %>/photos/<%= photo._id %>">Cancel</a>
   </div>
   <div class="row align-items-center justify-content-center">
     <!--Edit Date-->
@@ -22,14 +24,12 @@
       <div class="form-group">
         <label for="description">Description: </label>
         <br/>
-        <textarea class="form-control" name="description" id="description" cols="30" rows="7" required><%= photo.description %></textarea>
+        <textarea class="form-control" name="description" id="description" cols="30" rows="7"><%= photo.description %></textarea>
       </div>
       <!--Buttons-->
       <div class="button-group">
         <!--Submit-->
         <button type="submit">Submit</button>
-        <!--Cancel-->
-        <a href="/albums/<%= photo.album %>/photos/<%= photo._id %>"><button>Cancel</button></a>
       </div>
     </form>
   </div>

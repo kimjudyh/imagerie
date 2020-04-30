@@ -96,6 +96,7 @@ router.post('/:albumid/photos', multipartMiddleware, async (req, res) => {
 
 
   } catch (err) {
+    console.log(err);
       return res.render('photos/new', {
         title: 'New Photo',
         albumId: req.params.albumid,
