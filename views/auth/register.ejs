@@ -1,6 +1,51 @@
-<%- include('../partials/_head') %>
-<main>
-  <h1> Register</h1>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
+  integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+   crossorigin="anonymous">
+   <link rel="stylesheet" href="/css/style.css"/>
+   <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+
+
+  <title>APP |
+    <%= title %>
+  </title>
+</head>
+
+<body>
+
+<main class="min">
+  <!-- nav -->
+
+  <div class="container-fluid banner banner-home">
+    <div class="row">
+      <div class="col-md-12">
+        <nav class="navbar navbar-md">
+         <div class="navbar-brand">PHOTO APP</div>
+           <ul class="nav">
+            <li class="nav-item">
+              <a href="/" class="nav-link">Home</a>
+            </li>
+            <li class="nav-item">
+              <a href="/auth/login" class="nav-link">Login</a>
+            </li>
+           
+           
+  
+          </ul>
+        
+      </nav>
+    </div>
+      </div>
+    </div>
+
+
+ 
   <% if (typeof error !== 'undefined') { %>
     <div class="error-message">
      <h3><%= error %></h3> 
@@ -10,33 +55,36 @@
   
 
   <!-- form for registration -->
+  <div class="login-box" id="login-box">
+    <h1> Register</h1>
   <form action="/auth/register" method="POST">
-    <div>
+    <div class="textbox">
       <label for="username">Username</label>
-      <br/>
-      <input type="text" id="username" name="username" />
+    
+      <input type="text" id="username" name="username" class="username"/>
     </div>
 
-    <div>
+    <div class="textbox">
       <label for="email">Email</label>
-      <br/>
-      <input type="email" id="email" name="email" />
+     
+      <input type="email" id="email" name="email" class="email"/>
     </div>
 
-    <div>
+    <div class="textbox">
       <label for="password">Password</label>
-      <br/>
-      <input type="password" id="password" name="password" />
+   
+      <input type="password" id="password" name="password"  class="password"/>
     </div>
 
-    <div>
+    <div class="textbox">
       <label for="password2">Confirm Password</label>
-      <br/>
+     
       <input type="password" id="password2" name="password2" />
     </div>
 
     <input type="submit" value="Register" />
   </form>
-
+</div>
+<div class="overlay"></div>
 </main>
 <%- include('../partials/_footer') %>

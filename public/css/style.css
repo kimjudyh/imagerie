@@ -162,9 +162,10 @@ button:hover {
 }
 
 
-.down{
-  margin-top: 20%;
-}
+/* .down{
+  margin-top: 66%;
+  color: #aaa;
+} */
 
 /* start of login page */
 .min{
@@ -174,13 +175,15 @@ button:hover {
   position: relative;
 
 }
+
 .login-box{
 position: absolute;
 top: 40%;
-left: 50%;
+left: 40%;
 transform: translate(-50px, -50px);
 color: #fff;
 z-index: 2;
+
 }
 .login-box h1{
   float:left;
@@ -193,11 +196,12 @@ z-index: 2;
   width: 100%;
   overflow: hidden;
   font-size: 20px;
-  padding: 6px;
+  /* padding: 6px ;  */
+  padding-top: 6px;
+  padding-bottom: 6px;
   margin: 8px 0;
   border-bottom: 1px solid #fff;
 }
-
 
 /* end og login page */
 .overlay{
@@ -209,4 +213,20 @@ z-index: 2;
   left:0;
   Z-index: 1;
 
+}
+/* sign up */
+#login-box{
+  position: absolute;
+top: 30%;
+left: 40%;
+}
+.email{
+  float: right;
+}
+.username{
+  float: right;
+}
+.password{
+  float: right;
+  /* end */
 }
