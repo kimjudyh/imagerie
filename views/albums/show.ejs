@@ -6,25 +6,24 @@
       <h1> <%= album.albumName %> </h1>
     </div>
     <!--Album Properties-->
-    <div class="row align-items-center justify-content-center">
-      <div class="col-sm">
+    <div class="album-properties-group">
+      <div>
         <strong>Date:</strong> <%= album.date.toLocaleDateString() %>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-sm">
+      <div> 
         <strong>Location:</strong> <%= album.location %>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-sm">
+      <div>
         <p><%= album.description %></p>
       </div>
-    </div>
     </div>
   </div>
   <!--Buttons-->
   <div class="button-group">
+    <!--Create New Photo-->
+    <div>
+      <a href="/albums/<%= album._id %>/photos/new"><button class="add">New Photo</button></a>
+    </div>
     <!--Edit Album-->
     <div>
       <a href="/albums/<%= album._id %>/edit"><button>Edit Album</button></a>

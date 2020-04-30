@@ -1,27 +1,29 @@
 
-  <div class="container-fluid banner fixed-top" id="nav">
-    <div class="row">
-      <div class="col-md-12">
+<div class="container-fluid banner fixed-top" id="nav">
+  <div class="row">
+    <div class="col-md-12">
         
-        <nav class="navbar navbar-expand-sm navbar-md ">
-          <div class="navbar-brand"><a href="/">PHOTO APP</a></div>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample03" aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon">Menu</span>
-          </button>
-
-            <ul class="nav">
-              <li class="nav-item">
-                <a href="/albums" class="nav-link">Albums</a>
-              </li>
-              <li class="nav-item">
-                <a href="/albums/new" class="nav-link">New Album</a>
-              </li>
-              <li class="nav-item">
-                <a href="/auth/logout" class="nav-link">Logout</a>
-              </li>
-            </ul>
-          </div>
-        </nav>
-      </div>
+      <nav class="navbar navbar-expand-md navbar-md ">
+        <div class="navbar-brand"><a href="/">PHOTO APP</a></div>
+        <!--Hamburger Menu Button-->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menuItems" aria-controls="menuItems" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <!--Hamburger Menu Contents-->
+        <div class="collapse navbar-collapse" id="menuItems">
+          <ul class="nav ml-auto">
+            <li class="nav-item">
+              <a href="/albums" class="nav-link">Albums</a>
+            </li>
+            <li class="nav-item">
+              <a href="/albums/new" class="nav-link">New Album</a>
+            </li>
+            <li class="nav-item">
+              <a href="/auth/logout" class="nav-link">Logout</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
     </div>
   </div>
+</div>
