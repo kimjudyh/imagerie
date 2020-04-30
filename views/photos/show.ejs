@@ -1,10 +1,27 @@
 <%- include('../partials/_head') %>
 <main class="container">
   <!--Photo Properties-->
-  <div class="show-body">
     <h1><%= albumName %></h1>
-
     <a href="/albums/<%=photo.album %>">Back to Album</a>
+    <div class="photo-navigation">
+      <!--Previous Photo Link-->
+      <% if (photoPosition > 0) {%>
+        <a href="/albums/<%= photo.album %>/photos/<%= albumPhotosArray[photoPosition - 1]%>">Previous Photo</a>  
+      <% } else { %>
+        Previous Photo 
+      <% } %>
+      <!--Next Photo Link-->
+      <% if (photoPosition < albumPhotosArray.length - 1) {%>
+        <a href="/albums/<%= photo.album %>/photos/<%= albumPhotosArray[photoPosition + 1]%>">Next Photo</a>  
+      <% } else { %>
+        Next Photo
+      <% } %>
+    </div>
+  <!--Show Image-->
+  <div class="show-body__img">
+    <img class="img-fluid" src="<%= photo.url%>" alt="image">
+  </div>
+  <div class="show-body">
     <div>
       <strong>Description: </strong>
       <p>
@@ -23,35 +40,18 @@
       <%= photo.date.toLocaleDateString() %>
       <% } %>
     </div>
-    <div>
-      <!--Previous Photo Link-->
-      <% if (photoPosition > 0) {%>
-        <a href="/albums/<%= photo.album %>/photos/<%= albumPhotosArray[photoPosition - 1]%>">Previous Photo</a> | 
-      <% } else { %>
-        Previous Photo |
-      <% } %>
-      <!--Next Photo Link-->
-      <% if (photoPosition < albumPhotosArray.length - 1) {%>
-        <a href="/albums/<%= photo.album %>/photos/<%= albumPhotosArray[photoPosition + 1]%>">Next Photo</a>  
-      <% } else { %>
-        Next Photo
-      <% } %>
+  </div>
+  <div class="row">
+    <!--Edit Button-->
+    <div class="col">
+      <a href="/albums/<%= photo.album %>/photos/<%= photo._id %>/edit"><button>Edit</button></a>
     </div>
-  <!--Show Image-->
-  <div class="show-body__img">
-    <img src="<%= photo.url%>" alt="image">
-  </div>
-  <!--Edit Button-->
-  <div>
-    <a href="/albums/<%= photo.album %>/photos/<%= photo._id %>/edit"><button>Edit</button></a>
-  </div>
-  <!--Delete Button-->
-  <div>
-    <form action="/albums/<%= photo.album %>/photos/<%= photo._id %>?_method=DELETE" method="POST">
-      <button type="submit">Delete</button>
-    </form>
-  </div>
-
+    <!--Delete Button-->
+    <div class="col">
+      <form action="/albums/<%= photo.album %>/photos/<%= photo._id %>?_method=DELETE" method="POST">
+        <button class="delete" type="submit">Delete</button>
+      </form>
+    </div>
   </div>
 </main>
 <%- include('../partials/_footer') %>

@@ -33,21 +33,23 @@
       </div>
     </div>
   </div>
-  <!--Submit Changes-->
-  <button class="submit" type="submit">Submit</button>
-  </form>
-  <!--Create New Photo-->
-  <div>
-    <a href="/albums/<%= album._id %>/photos/new"><button class="add">Add New Photo</button></a>
-  </div>
-  <!--Delete Album-->
-  <div>
-    <form action="/albums/<%= album._id %>?_method=DELETE" method="POST">
-      <button class="delete" type="submit">Delete Album</button>
+  <div class="container button-group">
+    <!--Submit Changes-->
+    <button class="submit" type="submit">Submit</button>
     </form>
+    <!--Create New Photo-->
+    <div>
+      <a href="/albums/<%= album._id %>/photos/new"><button class="add">Add New Photo</button></a>
+    </div>
+    <!--Delete Album-->
+    <div>
+      <form action="/albums/<%= album._id %>?_method=DELETE" method="POST">
+        <button class="delete" type="submit">Delete Album</button>
+      </form>
+    </div>
+    <!--Cancel button-->
+    <a href="/albums"><button>Cancel</button></a>
   </div>
-  <!--Cancel button-->
-  <a href="/albums"><button>Cancel</button></a>
   <!--Display Photos-->
   <div class="album-card-group">
     <% albumPhotos.forEach((albumPhoto) => { %>

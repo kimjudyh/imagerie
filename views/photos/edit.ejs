@@ -1,39 +1,34 @@
 
 <%- include('../partials/_head') %>
-<div class="container">
-<main>
+<main class="container">
   <h1>Edit Photo</h1>
-  <div>
+  <div class="row">
+    <div class="col-sm-6">
     <form action="/albums/<%= photo.album %>/photos/<%= photo._id%>?_method=PUT" method="POST">
-      <!-- <div class="form-group row ele">
-        <label for="colFormLabel" class="col-sm-2 col-form-label">Url</label>
-        <div class="col-sm-10">
-          <input type="text" class="form-control" id="url colFormLabel" name="url" required value="<%= photo.url%>">
-        </div>
-      </div> -->
-      <div>
+      <!-- <div>
         <label for="url">Url: </label>
         <br/>
         <input type="text" id="url" name="url" required value="<%= photo.url%>">
-      </div>
-      <div>
+      </div> -->
+      <div class="form-group">
         <label for="date">Date: </label>
         <br/>
-        <input type="date" id="date" name="date" value="<%= photoDateString %>">
+        <input class="form-control" type="date" id="date" name="date" value="<%= photoDateString %>">
       </div>
-      <div>
+      <div class="form-group">
         <label for="location">Location: </label>
         <br/>
-        <input type="text" id="location" name="location" required value="<%= photo.location %>">
+        <input class="form-control" type="text" id="location" name="location" required value="<%= photo.location %>">
       </div>
-      <div>
+      <div class="form-group">
         <label for="description">Description: </label>
         <br/>
-        <textarea name="description" id="description" cols="30" rows="10" required><%= photo.description %></textarea>
+        <textarea class="form-control" name="description" id="description" cols="30" rows="7" required><%= photo.description %></textarea>
       </div>
       <button type="submit">Submit</button>
+      <a href="/albums/<%= photo.album %>/photos/<%= photo._id %>"><button>Cancel</button></a>
     </form>
   </div>
+  </div>
 </main>
-</div>
 <%- include('../partials/_footer') %>

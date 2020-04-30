@@ -19,10 +19,8 @@ body {
 
 
 img {
-  max-width: 40vw;
-  max-height: 40vh;
-  width: auto;
-  height: auto;
+  max-width: 90vw;
+  max-height: 90vh;
 }
 
 /* .thumbnail img{
@@ -31,17 +29,26 @@ img {
   height: 100px;
 } */
 
-.show-body {
+/* .show-body {
   display: flex;
   align-items: center;
-  justify-content: center;;
+  justify-content: center;
+} */
+
+.photo-navigation {
+  display: flex;
+  justify-content: space-evenly;
 }
 
-.show-body__img img {
-  max-width: 90vw;
-  max-height: 80vh;
-  width: auto;
-  height: auto; 
+.show-body__img {
+  display: flex;
+  justify-content: center;
+}
+
+/* Edit Album */
+.button-group {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .banner, .banner-home{
@@ -62,7 +69,7 @@ img {
 /* home page and navbar */
 .home {
   height: 100vh;
-  background: url(bg.jpg);
+  background: url(bg2.jpg);
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -154,7 +161,8 @@ button:hover {
 
 .album-card-group ul {
   list-style: none;
-  padding: 0;
+  padding-left: 0;
+  padding-top: 5px;
 }
 
 .album-card-group img {
