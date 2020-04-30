@@ -1,11 +1,12 @@
 <div class="profile">
 <%- include('../partials/_head') %>
-<main class="container " id="pro">
+<main class="container col-md-10 offset-md-1" id="pro">
   <!--TODO: replace User w/ username-->
-  <h2>Welcome, <%= username %></h2>
-  <h3>Profile Page</h3>
-<a href="/albums/new"><button>New Album</button></a>
-
+  <div class="title">
+  <h2 >Welcome, <%= username %></h2>
+  <h3 >Profile Page</h3>
+<a href="/albums/new">New Album</a>
+</div>
 <div class="container album-card-group">
   <% albums.forEach((album) => { %>
     <div class="album-card card" style="width: 200px;">
@@ -28,7 +29,7 @@
 </div>
 
 </main>
-<div class="overlay"></div>
+<div class="overlay" id="overlay"></div>
 </div>
 
 <%- include('../partials/_footer') %>

@@ -157,6 +157,7 @@ button:hover {
 
 .album-card-group .card {
   margin: 10px;
+  
 }
 
 .album-card-group ul {
@@ -243,11 +244,28 @@ left: 40%;
  /* start of index page of album */
  .profile{
   height: 100vh;
-  background: url(moun.jpg) no-repeat;
+  background: url(ca.jpg) no-repeat;
   background-size: cover;
   position: relative;
  }
  #pro{
    position: absolute;
+   top: 20vh;
    z-index: 2;
+ }
+ #nav{
+   color: #fff;
+   z-index: 2;
+ }
+ .title{
+  color: #fff;
+  text-align: center;
+margin-bottom: 5vh;
+  }
+ .title a{
+   color: #fff;
+   /* border: 1px solid white; */
+   }
+ #overlay{
+   background:#050e1c5e;
  }
