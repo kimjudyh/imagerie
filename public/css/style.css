@@ -79,7 +79,6 @@ footer {
 
 .banner .nav {
   margin-right: 10%;
-  /* z-index: 2; */
 }
 
 .banner .nav li a {
@@ -91,11 +90,8 @@ footer {
 .banner a:hover {
   text-decoration: underline;
 }
-/* Homepage Navbar */
-/* .banner-home {
-  background: transparent;
-} */
 
+/* Homepage Navbar */
 .banner-home .navbar-brand {
   z-index: 2;
 }
@@ -140,11 +136,8 @@ footer {
   justify-content: space-evenly;
 }
 
-
-
 /*====== BUTTONS ======*/
 button {
-  /* background-color:rgb(242, 240, 242); */
   background-color: #737373DE;
   outline: none;
   border: none;
@@ -171,10 +164,7 @@ button:focus {
   border-radius: 10px;
 }
 
-/*======= FORMS =======*/
-
 /*====== ALBUM THUMBNAILS ======*/
-
 .album-card-group {
   display: flex;
   flex-wrap: wrap;
@@ -195,53 +185,30 @@ button:focus {
   overflow: hidden;
 }
 
-/*====== BACKGROUND IMAGE OVERLAY =====*/
-/* .overlay{
-  position: absolute;
-  background:#050e1c70;
-  width: 100%;
-  height: 100vh;
-  top: 0;
-  left:0;
-  z-index: 1;
-} */
-
 /*====== HOME PAGE =======*/
-
-/* home page and navbar */
-/* .home {
-  height: 100vh;
-  background: url('/img/des_wilderness.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-} */
-
 /* start of central data on home page */
-.info{
+.info {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   margin-top:15%;
-   /* transform: translateY(-15%); */
    z-index: 2;
    background-color: #27272799;
 }
-.info h1{
+
+.info h1 {
   font-size: 2.5em;
   font-weight: 700;
   letter-spacing: 2px;
 }
+
 .info a {
   color: #F1F1F1DE;
   font-weight: bold;
 }
 /* end of central data on home page */
-
 /* end of home page and navbar */
-
-
 
 /*====== AUTHENTICATION FORMS ======*/
 /* start of login page */
@@ -256,20 +223,12 @@ button:focus {
 .auth-form {
   height: 100vh;
 }
-/*  background: url('/img/des_wilderness.jpg') no-repeat;
-  background-size: cover;
-  position: relative;
-  background-attachment: fixed; 
-  z-index: -20;
-} */
 
-
-.login-box{
+.login-box {
   background-color: #27272799;
   position: absolute;
   top: 30%;
   left: 38%;
-  /* transform: translate(-50px, -50px); */
   color: #f1f1f1DE;
   z-index: 2;
 }
@@ -286,7 +245,6 @@ button:focus {
   width: 100%;
   overflow: hidden;
   font-size: 20px;
-  /* padding: 6px ;  */
   padding-top: 6px;
   padding-bottom: 6px;
   margin: 8px 0;
@@ -301,28 +259,40 @@ button:focus {
 
 /* end og login page */
 /* sign up */
-#login-box{
+#login-box {
   position: absolute;
-top: 30%;
-left: 40%;
-}
-.email{
-  float: right;
-}
-.username{
-  float: right;
-}
-.password{
-  float: right;
- 
+  top: 30%;
+  left: 40%;
 }
 
+.email {
+  float: right;
+}
+
+.username {
+  float: right;
+}
+
+.password {
+  float: right;
+}
+
+/*====== MEDIA QUERIES =======*/
 /* changing position for login */
 @media screen and (max-width: 600px) {
   .login-box {
     position: absolute;
     left:0%;
   }
+
+  .banner .nav {
+    margin: 0;
+  }
+
+  .banner ul {
+    padding: 0;
+    margin: 0;
+  }  
 }
 
 /* changing position for sign up  */ 
@@ -339,36 +309,15 @@ left: 40%;
   .navbar-toggler {
     margin: 0;
   }
+
+  .banner .nav {
+    margin: 0;
+  }
+
+  .banner ul {
+    padding: 0;
+    margin: 0;
+  }  
 }
 
  /* end */
-
- /* start of index page of album */
- /* .profile{
-  height: 100%;
-  background: url('/img/des_wilderness.jpg') no-repeat;
-  background-size: cover;
-  position: relative;
- } */
- /* #pro{
-   position: absolute;
-   top: 20vh;
-   z-index: 2;
- } */
- /* #nav{
-   color: #fff;
-   z-index: 2;
- }
- .title{
-  color: #fff;
-  text-align: center;
-margin-bottom: 5vh;
-  }
- .title a{
-   color: #fff;
-   border: 1px solid white;
-   } */
- /* #overlay{
-   background:#050e1c5e;
-  background-attachment: fixed;
- } */

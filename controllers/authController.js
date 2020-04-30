@@ -94,9 +94,7 @@ router.get('/login', (req, res) => {
 router.post('/login', async (req, res) => {
   try {
   // check for existing user account
-  console.log(req.body);
   const user = await db.User.findOne({username: req.body.username});
-  console.log(user);
 
   // user doesn't exist
   if (!user) {
@@ -117,12 +115,8 @@ router.post('/login', async (req, res) => {
     });
   }
   // if passwords match, create new session, redirect to profile page
-  console.log('user confirmed');
-  console.log('session: ', req.session);
   // attach currentUser property to cookie
   req.session.currentUser = user._id;
-
-  console.log('user added: ', req.session);
 
   // redirect user to albums view
   res.redirect('/albums');
@@ -137,7 +131,6 @@ router.get('/logout', async (req, res) => {
   // TODO: first check if user is logged in
   try {
     await req.session.destroy();
-    console.log('session destroyed:', req.session);
     res.redirect('/auth/login');
     
 

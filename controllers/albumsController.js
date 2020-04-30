@@ -11,7 +11,6 @@ const db = require('../models');
 // get album index
 router.get('/', async(req, res) => {
   try {
-    console.log('cookie', req.session.currentUser)
     // user authorization
     if (!req.session.currentUser) {
       // send to login screen if not logged in
@@ -21,7 +20,6 @@ router.get('/', async(req, res) => {
     const allAlbums = await db.Album.find({ user: req.session.currentUser });
     // get logged in user to pass their username to view
     const user = await db.User.findById(req.session.currentUser);
-    console.log('user found', user);
     res.render('albums/index', {
       albums: allAlbums,
       username: user.username,
@@ -56,7 +54,6 @@ router.post('/', async (req, res) => {
     const createAlbum = await db.Album.create(req.body);
     createAlbum.user = req.session.currentUser;
     const savedAlbum = await createAlbum.save();
-    console.log('saved album: ', savedAlbum);
 
     res.redirect(`/albums/${createAlbum._id}`)
 

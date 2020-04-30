@@ -12,8 +12,6 @@ const MongoStore = require('connect-mongo')(session);
 const app = express();
 const port = process.env.PORT || 4000;
 
-console.log('testing dotenv : ', process.env.TEST)
-
 // ======= VIEW ENGINE
 app.set('view engine', 'ejs');
 
