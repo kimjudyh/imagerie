@@ -45,6 +45,12 @@ img {
   justify-content: center;
 }
 
+/* Edit Album */
+.button-group {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .banner, .banner-home{
   width: 100%;
   /* color:#fff */
@@ -155,7 +161,8 @@ button:hover {
 
 .album-card-group ul {
   list-style: none;
-  padding: 0;
+  padding-left: 0;
+  padding-top: 5px;
 }
 
 .album-card-group img {
