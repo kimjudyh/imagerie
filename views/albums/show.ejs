@@ -1,24 +1,41 @@
 <%- include('../partials/_head') %>
-<main class="container">
+<main class="container dark-theme">
   <div>
     <!--Album Name-->
     <h1> <%= album.albumName %> </h1>
-    <div class="album-show-buttons">
-      <!--Edit Album-->
+    <!--Album Properties-->
+    <div class="row">
+      <div class="col-sm">
+        <strong>Date:</strong> <%= album.date.toLocaleDateString() %>
+      </div>
+      <div class="col-sm">
+        <strong>Location:</strong> <%= album.location %>
+      </div>
+    </div>
+    <div class="row">
+
+    </div>
+      <div class="col-sm">
+        <p><%= album.description %></p>
+      </div>
+    </div>
+  </div>
+  <!--Buttons-->
+  <div class="album-show-buttons row">
+    <!--Edit Album-->
+    <div class="col-auto">
       <a href="/albums/<%= album._id %>/edit"><button>Edit Album</button></a>
+    </div>
+    <div class="col-sm">
       <!--Delete Album-->
       <form action="/albums/<%= album._id %>?_method=DELETE" method="POST">
         <button class="delete" type="submit">Delete Album</button>
       </form>
     </div>
-    <!--Album Properties-->
-    <h4>Date: <%= album.date.toLocaleDateString() %></h4>
-    <h4>Location: <%= album.location %></h4>
-    <p><%= album.description %></p>
   </div>
   <!--Show Photo thumbnails-->
+  <div class="container">
   <div class="album-card-group">
-  <!-- <div class="thumbnails"> -->
     <% albumPhotos.forEach((albumPhoto) => { %>
       <div class="card h-100" style="width: 300px;">
         <a href="/albums/<%= album._id %>/photos/<%= albumPhoto._id %>">
@@ -26,6 +43,8 @@
       </a>
       </div>
     <% }) %>
+  </div>
+
   </div>
 </main>
 <%- include('../partials/_footer') %>
