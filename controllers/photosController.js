@@ -199,7 +199,7 @@ router.delete('/:albumid/photos/:id', async (req, res) => {
     const foundAlbum = await db.Album.findById(req.params.albumid);
     const deletedPhotoIndex = foundAlbum.photos.pull({_id: req.params.id});
     const savedAlbum = await foundAlbum.save();
-    // TODO: delete cloud version of picture
+    // delete cloud version of picture
     cloudinary.v2.uploader.destroy(deletedPhoto.cloudinaryPublicId, (err, result) => {
       if (err) {
         console.log(err);
