@@ -59,6 +59,7 @@ router.post('/:albumid/photos', multipartMiddleware, async (req, res) => {
     if (!req.session.currentUser) {
       return res.redirect('/auth/login');
     };
+
     console.log('req.body', req.body)
     
     // Cloudinary part
@@ -95,7 +96,12 @@ router.post('/:albumid/photos', multipartMiddleware, async (req, res) => {
 
 
   } catch (err) {
-    res.send(err);
+      return res.render('photos/new', {
+        title: 'New Photo',
+        albumId: req.params.albumid,
+        error: 'Please choose a file or URL'
+      })
+    // res.send(err);
   }
 });
 
