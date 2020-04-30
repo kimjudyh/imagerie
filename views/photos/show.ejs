@@ -8,7 +8,7 @@
       <% if (photoPosition > 0) {%>
         <a href="/albums/<%= photo.album %>/photos/<%= albumPhotosArray[photoPosition - 1]%>">Previous Photo</a>  
       <% } else { %>
-        Previous Photo |
+        Previous Photo 
       <% } %>
       <!--Next Photo Link-->
       <% if (photoPosition < albumPhotosArray.length - 1) {%>
@@ -41,16 +41,17 @@
       <% } %>
     </div>
   </div>
-  <!--Edit Button-->
-  <div>
-    <a href="/albums/<%= photo.album %>/photos/<%= photo._id %>/edit"><button>Edit</button></a>
+  <div class="row">
+    <!--Edit Button-->
+    <div class="col">
+      <a href="/albums/<%= photo.album %>/photos/<%= photo._id %>/edit"><button>Edit</button></a>
+    </div>
+    <!--Delete Button-->
+    <div class="col">
+      <form action="/albums/<%= photo.album %>/photos/<%= photo._id %>?_method=DELETE" method="POST">
+        <button class="delete" type="submit">Delete</button>
+      </form>
+    </div>
   </div>
-  <!--Delete Button-->
-  <div>
-    <form action="/albums/<%= photo.album %>/photos/<%= photo._id %>?_method=DELETE" method="POST">
-      <button type="submit">Delete</button>
-    </form>
-  </div>
-
 </main>
 <%- include('../partials/_footer') %>
