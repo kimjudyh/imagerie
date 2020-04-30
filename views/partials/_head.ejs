@@ -20,3 +20,9 @@
   <body>
   <!-- nav -->
   <%- include('_nav') %>
+
+  <% if (typeof error !== 'undefined') { %>
+    <div class="error-message">
+     <h3><%= error %></h3> 
+    </div>
+  <%}%>
