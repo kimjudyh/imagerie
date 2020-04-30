@@ -7,6 +7,9 @@ const PhotoSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  cloudinaryPublicId: {
+    type: String,
+  },
   date: {
     type: Date,
   },
