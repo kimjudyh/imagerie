@@ -182,13 +182,12 @@ button:focus {
 
 .album-card-group ul {
   list-style: none;
-  padding-left: 0;
-  padding-top: 5px;
+  padding: 0;
 }
 
-/* .album-card-group img {
+.album-card-group img {
   overflow: hidden;
-} */
+}
 
 /*====== BACKGROUND IMAGE OVERLAY =====*/
 /* .overlay{
@@ -236,6 +235,8 @@ button:focus {
 
 /* end of home page and navbar */
 
+
+
 /*====== AUTHENTICATION FORMS ======*/
 /* start of login page */
 .error-message {
@@ -261,7 +262,7 @@ button:focus {
   background-color: #27272799;
   position: absolute;
   top: 30%;
-  left: 40%;
+  left: 38%;
   /* transform: translate(-50px, -50px); */
   color: #f1f1f1DE;
   z-index: 2;
@@ -309,6 +310,26 @@ left: 40%;
   float: right;
  
 }
+
+/* changing position for login */
+@media screen and (max-width: 600px) {
+  .login-box {
+    position: absolute;
+    left:0%;
+
+    
+  }
+}
+
+/* changing position for sign up  */ 
+ @media screen and (max-width: 400px) {
+  #login-box {
+    position: absolute;
+    left:0;
+    
+  }
+}
+
  /* end */
 
  /* start of index page of album */
