@@ -303,10 +303,20 @@ left: 40%;
 }
 
 /* changing position for login */
-@media screen and (max-width: 0px) {
+@media screen and (max-width: 600px) {
   .login-box {
     position: absolute;
-    left:17%;
+    left:0%;
+
+    
+  }
+}
+
+/* changing position for sign up  */ 
+ @media screen and (max-width: 400px) {
+  #login-box {
+    position: absolute;
+    left:0;
     
   }
 }
