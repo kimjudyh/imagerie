@@ -244,6 +244,7 @@ left: 40%;
  /* start of index page of album */
  .profile{
   height: 100vh;
+  width: 100vw;
   background: url(ca.jpg) no-repeat;
   background-size: cover;
   position: relative;
@@ -264,8 +265,34 @@ margin-bottom: 5vh;
   }
  .title a{
    color: #fff;
-   /* border: 1px solid white; */
+  
    }
  #overlay{
    background:#050e1c5e;
  }
+
+.btn{
+  width: 110px;
+  padding: 2px;
+  font-size: 13px;
+  color:#AAAAAA;
+  font-family: poppins;
+  font-weight: 20px;
+  border: 5px solid #AAAAAA;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 100px;
+  transition: 0.60s;
+}
+.btn:hover {
+  box-shadow: 0 5px 10px 0 #AAAAAA inset, 0 5px 10px 0 #AAAAAA ;
+  text-shadow: 0 0px 5px  #AAAAAA, 0 0px 5px  #AAAAAA;
+}
+.card-subtitle{
+  color: #AAAAAA;
+  font-family: poppins;
+  font-weight: 10px;
+}
+#card-title{
+  color: #AAAAAA;
+} 
