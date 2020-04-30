@@ -101,6 +101,10 @@ img {
 }
 
 /*===== VIEW STYLING =====*/
+.view-title {
+  text-align: center;
+}
+
 /* Show Album */
 .show-body__img {
   display: flex;
@@ -111,6 +115,7 @@ img {
 .button-group {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 /* Show Photo */
@@ -151,7 +156,6 @@ button:focus {
 }
 
 /*======= FORMS =======*/
-
 
 /*====== ALBUM THUMBNAILS ======*/
 

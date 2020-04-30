@@ -21,7 +21,7 @@
   <div class="show-body__img">
     <img class="img-fluid" src="<%= photo.url%>" alt="image">
   </div>
-  <div class="show-body row">
+  <div class="row align-items-center justify-content-center">
     <div class="col-md justify-content-center">
       <strong>Description: </strong>
         <%= photo.description %>
@@ -30,7 +30,7 @@
       <strong>Location: </strong>
         <%= photo.location %>
     </div>
-    <div class="col-md justify-content-center">
+    <div class="col-md align-items-center justify-content-center">
       <Strong>Date:</Strong>
       <% if (photo.date) { %>
       <%= photo.date.toLocaleDateString() %>

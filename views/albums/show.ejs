@@ -2,9 +2,11 @@
 <main class="dark-theme container">
   <div>
     <!--Album Name-->
-    <h1> <%= album.albumName %> </h1>
+    <div class="view-title">
+      <h1> <%= album.albumName %> </h1>
+    </div>
     <!--Album Properties-->
-    <div class="row">
+    <div class="row align-items-center justify-content-center">
       <div class="col-sm">
         <strong>Date:</strong> <%= album.date.toLocaleDateString() %>
       </div>
@@ -22,7 +24,7 @@
     </div>
   </div>
   <!--Buttons-->
-  <div class="album-show-buttons row">
+  <div class="button-group row align-items-center justify-content-center">
     <!--Edit Album-->
     <div class="col-auto">
       <a href="/albums/<%= album._id %>/edit"><button>Edit Album</button></a>
