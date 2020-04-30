@@ -200,8 +200,8 @@ router.delete('/:albumid/photos/:id', async (req, res) => {
         console.log(err);
       }
     });
-    // redirect to album that photo was in
-    res.redirect(`/albums/${req.params.albumid}`);
+    // redirect to album edit view that photo was in
+    res.redirect(`/albums/${req.params.albumid}/edit`);
 
   } catch (err) {
     res.send(err);
