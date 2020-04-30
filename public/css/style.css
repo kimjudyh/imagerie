@@ -10,7 +10,7 @@ gray: rgb(242, 240, 242)
 body {
   margin: 0;
   padding: 0;
-  /* background: rgb(196, 255, 234, .3); */
+  background: rgb(196, 255, 234, .3);
   font-family: 'Raleway', sans-serif;
   /* margin-left: 20px; */
   color: black;
@@ -19,8 +19,10 @@ body {
 
 
 img {
-  max-width: 90vw;
-  max-height: 90vh;
+  max-width: 40vw;
+  max-height: 40vh;
+  width: auto;
+  height: auto;
 }
 
 /* .thumbnail img{
@@ -29,26 +31,17 @@ img {
   height: 100px;
 } */
 
-/* .show-body {
+.show-body {
   display: flex;
   align-items: center;
-  justify-content: center;
-} */
-
-.photo-navigation {
-  display: flex;
-  justify-content: space-evenly;
+  justify-content: center;;
 }
 
-.show-body__img {
-  display: flex;
-  justify-content: center;
-}
-
-/* Edit Album */
-.button-group {
-  display: flex;
-  flex-wrap: wrap;
+.show-body__img img {
+  max-width: 90vw;
+  max-height: 80vh;
+  width: auto;
+  height: auto; 
 }
 
 .banner, .banner-home{
@@ -69,7 +62,7 @@ img {
 /* home page and navbar */
 .home {
   height: 100vh;
-  background: url(bg2.jpg);
+  background: url(bg.jpg);
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -157,24 +150,22 @@ button:hover {
 
 .album-card-group .card {
   margin: 10px;
-  
 }
 
 .album-card-group ul {
   list-style: none;
-  padding-left: 0;
-  padding-top: 5px;
+  padding: 0;
 }
 
-/* .album-card-group img {
+.album-card-group img {
   overflow: hidden;
-} */
+}
 
 
-/* .down{
-  margin-top: 66%;
+.down{
+  margin-top: 69%;
   color: #aaa;
-} */
+}
 
 /* start of login page */
 .min{
@@ -223,7 +214,7 @@ z-index: 2;
   Z-index: 1;
 
 }
-/* sign up */
+
 #login-box{
   position: absolute;
 top: 30%;
@@ -237,62 +228,4 @@ left: 40%;
 }
 .password{
   float: right;
- 
 }
- /* end */
-
- /* start of index page of album */
- .profile{
-  height: 100vh;
-  width: 100vw;
-  background: url(ca.jpg) no-repeat;
-  background-size: cover;
-  position: relative;
- }
- #pro{
-   position: absolute;
-   top: 20vh;
-   z-index: 2;
- }
- #nav{
-   color: #fff;
-   z-index: 2;
- }
- .title{
-  color: #fff;
-  text-align: center;
-margin-bottom: 5vh;
-  }
- .title a{
-   color: #fff;
-  
-   }
- #overlay{
-   background:#050e1c5e;
- }
-
-.btn{
-  width: 110px;
-  padding: 2px;
-  font-size: 13px;
-  color:#AAAAAA;
-  font-family: poppins;
-  font-weight: 20px;
-  border: 5px solid #AAAAAA;
-  text-transform: uppercase;
-  cursor: pointer;
-  border-radius: 100px;
-  transition: 0.60s;
-}
-.btn:hover {
-  box-shadow: 0 5px 10px 0 #AAAAAA inset, 0 5px 10px 0 #AAAAAA ;
-  text-shadow: 0 0px 5px  #AAAAAA, 0 0px 5px  #AAAAAA;
-}
-.card-subtitle{
-  color: #AAAAAA;
-  font-family: poppins;
-  font-weight: 10px;
-}
-#card-title{
-  color: #AAAAAA;
-} 
