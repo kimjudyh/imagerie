@@ -165,9 +165,9 @@ button:hover {
   padding-top: 5px;
 }
 
-.album-card-group img {
+/* .album-card-group img {
   overflow: hidden;
-}
+} */
 
 
 /* .down{
@@ -236,5 +236,18 @@ left: 40%;
 }
 .password{
   float: right;
-  /* end */
+ 
 }
+ /* end */
+
+ /* start of index page of album */
+ .profile{
+  height: 100vh;
+  background: url(moun.jpg) no-repeat;
+  background-size: cover;
+  position: relative;
+ }
+ #pro{
+   position: absolute;
+   z-index: 2;
+ }
