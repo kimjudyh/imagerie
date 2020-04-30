@@ -5,16 +5,16 @@ const mongoose = require('mongoose');
 const PhotoSchema = new mongoose.Schema({
   url: {
     type: String,
-    //unique: true,
     required: true,
+  },
+  cloudinaryPublicId: {
+    type: String,
   },
   date: {
     type: Date,
-    //required: true,
   },
   location: {
     type: String,
-    required: true,
   },
   description: {
     type: String,

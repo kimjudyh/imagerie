@@ -41,13 +41,13 @@
       <% } %>
     </div>
   </div>
-  <div class="row">
+  <div class="row justify-content-center">
     <!--Edit Button-->
-    <div class="col">
+    <div class="col-auto">
       <a href="/albums/<%= photo.album %>/photos/<%= photo._id %>/edit"><button>Edit</button></a>
     </div>
     <!--Delete Button-->
-    <div class="col">
+    <div class="col-auto">
       <form action="/albums/<%= photo.album %>/photos/<%= photo._id %>?_method=DELETE" method="POST">
         <button class="delete" type="submit">Delete</button>
       </form>

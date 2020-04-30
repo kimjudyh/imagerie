@@ -70,7 +70,8 @@ router.post('/:albumid/photos', multipartMiddleware, async (req, res) => {
       result = await cloudinary.v2.uploader.upload(req.files.image.path);
       console.log('result', result.secure_url);
       // save URL to req.body
-      req.body.url = await result.secure_url;
+      req.body.url = result.secure_url;
+      req.body.cloudinaryPublicId = result.public_id;
     }
 
     // make new photo in db
@@ -193,11 +194,17 @@ router.delete('/:albumid/photos/:id', async (req, res) => {
     };
     // delete photo object
     const deletedPhoto = await db.Photo.findByIdAndDelete(req.params.id);
+    console.log('deleted photo', deletedPhoto);
     // remove photo id from albums photos array
     const foundAlbum = await db.Album.findById(req.params.albumid);
     const deletedPhotoIndex = foundAlbum.photos.pull({_id: req.params.id});
     const savedAlbum = await foundAlbum.save();
-    // TODO: delete cloud version of picture
+    // delete cloud version of picture
+    cloudinary.v2.uploader.destroy(deletedPhoto.cloudinaryPublicId, (err, result) => {
+      if (err) {
+        console.log(err);
+      }
+    });
     // TODO: if user deleted from album edit, redirect there
     // redirect to album that photo was in
     console.log(req.url);
