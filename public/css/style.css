@@ -322,8 +322,6 @@ left: 40%;
   .login-box {
     position: absolute;
     left:0%;
-
-    
   }
 }
 
@@ -332,7 +330,14 @@ left: 40%;
   #login-box {
     position: absolute;
     left:0;
-    
+  }
+
+  .navbar-brand {
+    margin: 0;
+  }
+
+  .navbar-toggler {
+    margin: 0;
   }
 }
 
