@@ -4,13 +4,12 @@
 A menagerie is a varied collection of items. On Imagerie, our full-stack website, a user can sign up to create, edit and view their collections of images.
 
 The photo view page:
+
 <img src="./public/img/readme/desktop_photo_show.jpg" height=350>
 
 Imagerie is responsive to mobile screen sizes: 
 
-<img src="./public/img/readme/mobile_profile.jpg" height=300>
-<img src="./public/img/readme/mobile_album_view.jpg" height=300>
-<img src="./public/img/readme/mobile_photo_show.jpg" height=300>
+<img src="./public/img/readme/mobile_profile.jpg" height=300><img src="./public/img/readme/mobile_album_view.jpg" height=300><img src="./public/img/readme/mobile_photo_show.jpg" height=300>
 
 ## Scope
 ### MVP
