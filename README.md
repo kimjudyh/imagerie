@@ -1,6 +1,11 @@
-# Project 1
+# Project 1: Full Stack Website
 
-Photo Album App
+## Imagerie, an image collection app
+imagery + menagerie
+
+<img src="./public/img/desktop_photo_show.jpg" height=350>
+<img src="./public/img/mobile_photo_show.jpg" height=400>
+
 
 ## Technologies Used
 - Frontend: Bootstrap CSS, HTML

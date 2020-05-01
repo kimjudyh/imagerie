@@ -1,16 +1,15 @@
-console.log('app.js is working');
 
+// grab Submit button on Photo Create page
 const newPhotoButton = document.querySelector('#newPhotoButton');
+// grab container that Submit button resides in
 const container = document.querySelector('.container')
 
-newPhotoButton.addEventListener('click', () => {
-  console.log('clicked');
-  console.log(newPhotoButton)
-  const progress = document.createElement('p');
-  progress.classList.add('progress-indicator');
-  progress.innerHTML = '<h2>Loading...</h2>';
-  console.log(progress);
-  console.log(newPhotoButton.parentElement);
-  container.appendChild(progress)
-
-})
+// show Loading animation after user clicks submit
+if (newPhotoButton) {
+  newPhotoButton.addEventListener('click', () => {
+    const progress = document.createElement('p');
+    progress.classList.add('progress-indicator');
+    progress.innerHTML = '<h2>Loading...</h2>';
+    container.appendChild(progress)
+  })
+}
