@@ -145,23 +145,6 @@ router.delete('/:id', async (req, res) => {
       return res.redirect('/auth/login');
     };
     const deleteAlbum = await db.Album.findByIdAndDelete(req.params.id)
-    // populate photos to delete cloud versions
-    //   .populate('photos');
-    // console.log(deleteAlbum.photos);
-    // console.log('1st id', deleteAlbum.photos[0].cloudinaryPublicId);
-    // const photoCloudinaryPublicIds = [
-    //   deleteAlbum.photos[0].cloudinaryPublicId,
-    //   deleteAlbum.photos[1].cloudinaryPublicId,
-    // ];
-    // console.log('array', photoCloudinaryPublicIds);
-    // // delete photos from cloudinary
-    //   cloudinary.v2.api.delete_resources(photoCloudinaryPublicIds, (err, result) => {
-    //     if (err) {
-    //       console.log('cloudinary error', err);
-    //       return res.send(err)
-    //     }
-    //     console.log('cloudinary delete', result);
-    //   });
     // delete photos from database
     const deletePhotos = await db.Photo.deleteMany({album: req.params.id})
     console.log(deletePhotos);
