@@ -1,0 +1,55 @@
+<%- include('../partials/_head') %>
+<main class="dark-theme container">
+  <!--Title-->
+  <div class="view-title">
+    <h2>Add a New Photo</h2>
+    <!--Cancel Link-->
+    <div>
+      <a href="/albums/<%= albumId %>">Cancel</a>
+    </div>
+  </div>
+  <!--New Inputs-->
+  <div class="row align-items-center justify-content-center">
+    <div class="col-sm-6">
+      <!--enctype form-->
+      <form action="/albums/<%= albumId %>/photos" enctype="multipart/form-data" method="POST">
+        <!--File Upload-->
+        <div class="form-group">
+          <label for="image">Upload a Picture</label>
+          <br/>
+          <input type="file" name="image">
+        </div>
+        <!--URL input-->
+        <div class="form-group">
+          <label for="url">Or Use a Url: </label>
+          <br/>
+          <input class="form-control" type="text" id="url" name="url" >
+        </div>
+        <!--Date-->
+        <div class="form-group">
+          <label for="date">Date: </label>
+          <br/>
+          <input class="form-control" type="date" id="date" name="date">
+        </div>
+        <!--Location-->
+        <div class="form-group">
+          <label for="location">Location: </label>
+          <br/>
+          <input class="form-control" type="text" id="location" name="location">
+        </div>
+        <!--Description-->
+        <div class="form-group">
+          <label for="description">Description: </label>
+          <br/>
+          <textarea class="form-control" name="description" id="description" cols="30" rows="5" ></textarea>
+        </div>
+        <!--Buttons-->
+        <div class="button-group">
+          <!--Submit-->
+          <button type="submit" id="newPhotoButton">Submit</button>
+      </form>
+        </div>
+    </div>
+  </div>
+</main>
+<%- include('../partials/_footer') %>

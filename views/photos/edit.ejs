@@ -1,0 +1,40 @@
+<%- include('../partials/_head') %>
+<main class="dark-theme container">
+  <!--Title-->
+  <div class="view-title">
+    <h2>Edit Photo</h2>
+    <!--Cancel-->
+    <a href="/albums/<%= photo.album %>/photos/<%= photo._id %>">Cancel</a>
+  </div>
+  <!--Inputs-->
+  <div class="row align-items-center justify-content-center">
+    <div class="col-sm-6">
+    <form action="/albums/<%= photo.album %>/photos/<%= photo._id%>?_method=PUT" method="POST">
+      <!--Edit Date-->
+      <div class="form-group">
+        <label for="date">Date: </label>
+        <br/>
+        <input class="form-control" type="date" id="date" name="date" value="<%= photoDateString %>">
+      </div>
+      <!--Edit Location-->
+      <div class="form-group">
+        <label for="location">Location: </label>
+        <br/>
+        <input class="form-control" type="text" id="location" name="location"  value="<%= photo.location %>">
+      </div>
+      <!--Edit Description-->
+      <div class="form-group">
+        <label for="description">Description: </label>
+        <br/>
+        <textarea class="form-control" name="description" id="description" cols="30" rows="7"><%= photo.description %></textarea>
+      </div>
+      <!--Buttons-->
+      <div class="button-group">
+        <!--Submit-->
+        <button type="submit">Submit</button>
+      </div>
+    </form>
+  </div>
+  </div>
+</main>
+<%- include('../partials/_footer') %>

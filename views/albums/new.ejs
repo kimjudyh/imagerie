@@ -1,0 +1,47 @@
+<%- include('../partials/_head') %>
+<main class="dark-theme container">
+  <!--Title-->
+  <div class="view-title">
+    <h2>Add a New Album</h2>
+    <!--Cancel Link-->
+    <div>
+      <a href="/albums">Cancel</a>
+    </div>
+  </div>
+  <div class="row align-items-center justify-content-center">
+    <div class="col-sm-6">
+    <!--New Inputs-->
+    <form action="/albums" method="POST">
+      <!--Album Name-->
+      <div class="form-group">
+        <label for="albumName">Album Name: </label>
+        <br />
+        <input class="form-control" type="text" id="albumName" name="albumName" required>
+      </div>
+      <!--Date-->
+      <div class="form-group">
+        <label for="date">Date: </label>
+        <br />
+        <input class="form-control" type="date" id="date" name="date" required>
+      </div>
+      <!--Location-->
+      <div class="form-group">
+        <label for="location">Location: </label>
+        <br />
+        <input class="form-control" type="text" id="location" name="location">
+      </div>
+      <!--Description-->
+      <div class="form-group">
+        <label for="description">Description: </label>
+        <br />
+        <textarea class="form-control" name="description" id="description" cols="30" rows="7" required></textarea>
+      </div>
+      <div class="button-group">
+        <!--Submit-->
+      <button type="submit">Submit</button>
+    </form>
+      </div>
+    </div>
+  </div>
+</main>
+<%- include('../partials/_footer') %>

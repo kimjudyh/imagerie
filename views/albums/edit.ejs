@@ -1,0 +1,83 @@
+<%- include('../partials/_head') %>
+<main class="dark-theme container">
+  <div class="view-title">
+    <!--Title-->
+    <h2>Edit Album</h2>
+    <!--Cancel-->
+    <div>
+      <a href="/albums">Cancel</a>
+    </div>
+  </div>
+  <!--Edit Inputs-->
+  <div class="row">
+    <div class="col-md">
+      <form action="/albums/<%= album._id %>?_method=PUT" method="POST">
+        <!--Album Name-->
+        <div class="form-group">
+          <label for="albumName">Album Name: </label>
+          <br />
+          <input class="form-control" type="text" id="albumName" name="albumName" value="<%= album.albumName %>" required>
+        </div>
+        <!--Date-->
+        <div class="form-group">
+          <label for="date">Date: </label>
+          <br />
+          <input class="form-control" type="date" id="date" name="date" value="<%= albumDateString %>" required>
+        </div>
+        <!--Location-->
+        <div class="form-group">
+          <label for="location">Location: </label>
+          <br />
+          <input class="form-control" type="text" id="location" name="location" value="<%= album.location %>">
+        </div>
+    </div>
+    <div class="col-md">
+      <!--Description-->
+      <div class="form-group">
+        <label for="description">Description: </label>
+        <br />
+        <textarea class="form-control" name="description" id="description" cols="30" rows="6" required><%= album.description %></textarea>
+      </div>
+    </div>
+  </div>
+  <!--Buttons-->
+  <div class="container button-group">
+    <!--Submit Changes-->
+    <button class="submit" type="submit">Submit</button>
+    </form>
+    <!--Create New Photo-->
+    <div>
+      <a href="/albums/<%= album._id %>/photos/new"><button class="add">New Photo</button></a>
+    </div>
+    <!--Delete Album-->
+    <div>
+      <form action="/albums/<%= album._id %>?_method=DELETE" method="POST">
+        <button class="delete" type="submit">Delete Album</button>
+      </form>
+    </div>
+  </div>
+  <!--Display Photos-->
+  <div class="album-card-group">
+    <% albumPhotos.forEach((albumPhoto) => { %>
+      <div class="card h-100" style="width: 300px;">
+        <img class="card-img-top" src="<%= albumPhoto.url%>" alt="image">
+        <div class="card-text text-center">
+          <!--Buttons-->
+          <div class="button-group">
+            <div>
+              <!--Edit-->
+              <a href="/albums/<%= album._id %>/photos/<%= albumPhoto._id %>/edit"><button class="small-button">Edit</button></a>
+            </div>
+            <div>
+              <!--Delete-->
+              <form action="/albums/<%= album._id %>/photos/<%= albumPhoto._id %>?_method=DELETE" method="POST">
+                <button class="delete small-button" type="submit">Delete</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% })%>
+  </div>
+</main>
+<%- include('../partials/_footer') %>

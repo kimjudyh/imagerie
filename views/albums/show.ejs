@@ -1,0 +1,53 @@
+<%- include('../partials/_head') %>
+<main class="dark-theme container">
+  <div>
+    <!--Back to Albums-->
+    <h5><a href="/albums">Back to Albums</a></h5>
+    <!--Album Name-->
+    <div class="view-title">
+      <h2> <%= album.albumName %> </h2>
+    </div>
+    <!--Album Properties-->
+    <div class="album-properties-group">
+      <div>
+        <strong>Date:</strong> <%= album.date.toLocaleDateString() %>
+      </div>
+      <div> 
+        <strong>Location:</strong> <%= album.location %>
+      </div>
+      <div>
+        <p><%= album.description %></p>
+      </div>
+    </div>
+  </div>
+  <!--Buttons-->
+  <div class="button-group">
+    <!--Create New Photo-->
+    <div>
+      <a href="/albums/<%= album._id %>/photos/new"><button class="add">New Photo</button></a>
+    </div>
+    <!--Edit Album-->
+    <div>
+      <a href="/albums/<%= album._id %>/edit"><button>Edit Album</button></a>
+    </div>
+    <div>
+      <!--Delete Album-->
+      <form action="/albums/<%= album._id %>?_method=DELETE" method="POST">
+        <button class="delete" type="submit">Delete Album</button>
+      </form>
+    </div>
+  </div>
+  <!--Show Photo thumbnails-->
+  <div class="container">
+    <div class="album-card-group">
+      <% albumPhotos.forEach((albumPhoto) => { %>
+        <div class="card h-100" style="width: 300px;">
+          <a href="/albums/<%= album._id %>/photos/<%= albumPhoto._id %>">
+          <img class="card-img" src="<%= albumPhoto.url %>" alt=""/>
+        </a>
+        </div>
+      <% }) %>
+    </div>
+  </div>
+</main>
+<%- include('../partials/_footer') %>
