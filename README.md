@@ -4,7 +4,9 @@
 imagery + menagerie
 
 <img src="./public/img/desktop_photo_show.jpg" height=350>
+<img src="./public/img/mobile_album_view.jpg" height=400>
 <img src="./public/img/mobile_photo_show.jpg" height=400>
+<img src="./public/img/mobile_profile.jpg" height=400>
 
 
 ## Technologies Used

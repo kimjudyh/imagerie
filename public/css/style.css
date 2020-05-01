@@ -130,6 +130,13 @@ footer {
   justify-content: space-evenly;
 }
 
+.album-properties-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 /* New Photo */
 @keyframes loading {
   0% {color: #F1F1F1DE;}
