@@ -300,6 +300,18 @@ button:focus {
 
   }
 
+  .navbar {
+    padding: 0;
+  }
+
+  .navbar-brand {
+    margin: 0;
+  }
+
+  .navbar-toggler {
+    margin: 0;
+  }
+
   .banner .nav {
     margin: 0;
   }
