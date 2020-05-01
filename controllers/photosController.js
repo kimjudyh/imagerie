@@ -1,10 +1,11 @@
 // ======== IMPORTS
 const express = require('express');
 const router = express.Router();
+
 // import connect-multiparty to handle file upload
-// get access to file with req.file
 const multipart = require('connect-multiparty');
 const multipartMiddleware = multipart();
+
 // import cloudinary
 const cloudinary = require('cloudinary');
 // configure cloudinary w/ account details
@@ -18,26 +19,24 @@ cloudinary.config({
 const db = require('../models');
 
 // ======== ROUTES
-// Photo Index route
-// TODO: delete, maybe
-router.get('/', async (req, res) => {
-  try {
-    // authorization
-    if (!req.session.currentUser) {
-      return res.redirect('/auth/login');
-    }
-    // get all photos from database
-    // TODO: filter by album id?
-    const allPhotos = await db.Photo.find();
-    res.render('photos/index', {
-      title: 'Photo Index',
-      photos: allPhotos,
-    });
+// Photo Index route: replaced by Album Show route
+// router.get('/', async (req, res) => {
+//   try {
+//     // authorization
+//     if (!req.session.currentUser) {
+//       return res.redirect('/auth/login');
+//     }
+//     // get all photos from database
+//     const allPhotos = await db.Photo.find();
+//     res.render('photos/index', {
+//       title: 'Photo Index',
+//       photos: allPhotos,
+//     });
 
-  } catch (err) {
-    res.send(err)
-  }
-});
+//   } catch (err) {
+//     res.send(err)
+//   }
+// });
 
 // GET new Photo
 router.get('/:albumid/photos/new', async (req, res) => {
@@ -60,7 +59,7 @@ router.post('/:albumid/photos', multipartMiddleware, async (req, res) => {
       return res.redirect('/auth/login');
     };
 
-    // Cloudinary part
+    // Cloudinary photo upload
     let result;
     if (!req.body.url) {
       // if file was uploaded instead of url
@@ -88,12 +87,11 @@ router.post('/:albumid/photos', multipartMiddleware, async (req, res) => {
 
 
   } catch (err) {
-      return res.render('photos/new', {
-        title: 'New Photo',
-        albumId: req.params.albumid,
-        error: 'Please choose a file or URL'
-      })
-    // res.send(err);
+    return res.render('photos/new', {
+      title: 'New Photo',
+      albumId: req.params.albumid,
+      error: 'Please choose a file or URL'
+    })
   }
 });
 

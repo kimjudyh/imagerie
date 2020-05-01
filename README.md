@@ -71,5 +71,5 @@ Imagerie uses 3 linked models
 1. Users: one-to-many relationship with Albums
 2. Albums: one-to-many relationship with Photos
 3. Photos  
-<img src="./public/img/readme/ERD_v2.png">
+<img src="./public/img/readme/ERD_v3.png">
 

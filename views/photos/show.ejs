@@ -1,35 +1,40 @@
 <%- include('../partials/_head') %>
 <main class="dark-theme container">
-  <!--Photo Properties-->
-    <h2><%= albumName %></h2>
-    <h5><a href="/albums/<%=photo.album %>">Back to Album</a></h5>
-    <div class="photo-navigation">
-      <!--Previous Photo Link-->
-      <% if (photoPosition > 0) {%>
-        <a href="/albums/<%= photo.album %>/photos/<%= albumPhotosArray[photoPosition - 1]%>">Previous Photo</a>  
-      <% } else { %>
-        Previous Photo 
-      <% } %>
-      <!--Next Photo Link-->
-      <% if (photoPosition < albumPhotosArray.length - 1) {%>
-        <a href="/albums/<%= photo.album %>/photos/<%= albumPhotosArray[photoPosition + 1]%>">Next Photo</a>  
-      <% } else { %>
-        Next Photo
-      <% } %>
-    </div>
+  <!--Title-->
+  <h2><%= albumName %></h2>
+  <h5><a href="/albums/<%=photo.album %>">Back to Album</a></h5>
+  <!--Photo Navigation-->
+  <div class="photo-navigation">
+    <!--Previous Photo Link-->
+    <% if (photoPosition > 0) {%>
+      <a href="/albums/<%= photo.album %>/photos/<%= albumPhotosArray[photoPosition - 1]%>">Previous Photo</a>  
+    <% } else { %>
+      Previous Photo 
+    <% } %>
+    <!--Next Photo Link-->
+    <% if (photoPosition < albumPhotosArray.length - 1) {%>
+      <a href="/albums/<%= photo.album %>/photos/<%= albumPhotosArray[photoPosition + 1]%>">Next Photo</a>  
+    <% } else { %>
+      Next Photo
+    <% } %>
+  </div>
   <!--Show Image-->
   <div class="show-body__img">
     <img class="img-fluid" src="<%= photo.url%>" alt="image">
   </div>
+  <!--Photo Properties-->
   <div class="row align-items-center justify-content-center">
+    <!--Description-->
     <div class="col-md justify-content-center">
       <strong>Description: </strong>
         <%= photo.description %>
     </div>
+    <!--Location-->
     <div class="col-md justify-content-center">
       <strong>Location: </strong>
         <%= photo.location %>
     </div>
+    <!--Date-->
     <div class="col-md align-items-center justify-content-center">
       <Strong>Date:</Strong>
       <% if (photo.date) { %>
@@ -37,6 +42,7 @@
       <% } %>
     </div>
   </div>
+  <!--Buttons-->
   <div class="row justify-content-center">
     <!--Edit Button-->
     <div class="col-auto">

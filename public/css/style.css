@@ -1,18 +1,7 @@
-
-/* Color Template 
-green rgb(196, 255, 234) or #C4FFEA
-blue rgb(167, 232, 228) or #A7E8E4
-green rgb(167, 232, 191) or #A7E8BF
-error red: rgb(255, 138, 133) or #FF8A85
-beige: rgb(255, 218, 184) or #FFDAB8
-gray: rgb(242, 240, 242)
-*/
-
 /*===== GENERAL STYLING ======*/
 body {
   margin: 0;
   padding: 70px 0 0 0;
-  /* background: rgb(196, 255, 234, .3); */
   font-family: 'Raleway', sans-serif;
   color: black;
   background-image: url('/img/des_wilderness.jpg');

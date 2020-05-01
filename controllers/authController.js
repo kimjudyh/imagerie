@@ -21,26 +21,14 @@ router.post('/register', async (req, res) => {
     const user = await db.User.findOne({username: req.body.username});
     if (user) {
       // user comes back as truthy, account exists
-      // TODO: redirect to login with error message
       return res.render('auth/login', {
         error: 'Account already exists, please login',
         title: 'Login',
       });
     }
-    // check if email laready exists
-    // if (req.body.email) {
-    //   // user comes back as truthy, account exists
-    //   // TODO: redirect to login with error message
-    //   return res.render('auth/register', {
-    //     error: 'Email already used, please use a new one',
-    //     title: 'register',
-    //   });
-    // }
 
-       // TODO: verify "password" and "confirm password" match
     // check password match
     if (req.body.password !== req.body.password2) {
-      
       return res.render('auth/register', {
         title: 'Register',
         error: 'Passwords do not match',
@@ -65,7 +53,6 @@ router.post('/register', async (req, res) => {
       password: hash,
     };
    
-
     // else, create user in database
     const newUser = await db.User.create(userData);
     // then, redirect to login page
@@ -128,11 +115,10 @@ router.post('/login', async (req, res) => {
 
 // GET logout destroy session
 router.get('/logout', async (req, res) => {
-  // TODO: first check if user is logged in
+  // first check if user is logged in
   try {
     await req.session.destroy();
     res.redirect('/auth/login');
-    
 
   } catch (err) {
     res.send(err);

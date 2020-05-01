@@ -1,13 +1,14 @@
+// ======== IMPORTS
 const express = require('express');
 const router = express.Router();
 
 // photos controller
 const photosController = require('./photosController');
 
-// Database
+// ======== MODELS 
 const db = require('../models');
 
-// Routes --------------------
+// ======== ROUTES
 // get album index
 router.get('/', async(req, res) => {
   try {
@@ -62,6 +63,7 @@ router.post('/', async (req, res) => {
   }
 });
 
+// ------ Dynamic Routes
 // get albums show
 router.get('/:id', async (req, res) => {
   try {
@@ -90,7 +92,7 @@ router.get('/:id/edit', async (req, res) => {
   try {
     // user authorization:
     if (!req.session.currentUser) {
-      //   if no user so doesnt have access inside the new form
+      // if no user so doesnt have access inside the new form
       return res.redirect('/auth/login');
     };
     const foundAlbum = await db.Album.findById(req.params.id);
@@ -175,4 +177,5 @@ router.delete('/:id', async (req, res) => {
 // ------ Photos Routes
 router.use('/', photosController);
 
+// ======= EXPORTS
 module.exports = router;

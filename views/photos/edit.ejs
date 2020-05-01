@@ -1,14 +1,16 @@
 <%- include('../partials/_head') %>
 <main class="dark-theme container">
+  <!--Title-->
   <div class="view-title">
     <h2>Edit Photo</h2>
-      <!--Cancel-->
-      <a href="/albums/<%= photo.album %>/photos/<%= photo._id %>">Cancel</a>
+    <!--Cancel-->
+    <a href="/albums/<%= photo.album %>/photos/<%= photo._id %>">Cancel</a>
   </div>
+  <!--Inputs-->
   <div class="row align-items-center justify-content-center">
-    <!--Edit Date-->
     <div class="col-sm-6">
     <form action="/albums/<%= photo.album %>/photos/<%= photo._id%>?_method=PUT" method="POST">
+      <!--Edit Date-->
       <div class="form-group">
         <label for="date">Date: </label>
         <br/>

@@ -1,17 +1,19 @@
-<!-- <div class="profile"> -->
 <%- include('../partials/_head') %>
-<!-- <main class="container col-md-10 offset-md-1" id="pro"> -->
 <main class="dark-theme container">
+  <!--Title-->
   <div class="view-title">
   <h2 >Welcome, <%= username %></h2>
+  <!--New Album Link-->
   <h4><a href="/albums/new">New Album</a></h4>
   </div>
+  <!--Album Summary Cards-->
   <div class="container album-card-group">
     <% albums.forEach((album) => { %>
       <div class="album-card card" style="width: 200px;">
         <div class="card-body">
           <h5 class="card-title"><a href="/albums/<%= album._id %>"><%= album.albumName %></a></h5>
           <h6 class="card-subtitle"><%= album.location %></h6>
+          <!--Buttons-->
           <nav>
             <ul>
               <li>
@@ -26,9 +28,6 @@
       </div>
     <% }) %>
   </div>
-
 </main>
-<!-- <div class="overlay" id="overlay"></div> -->
-<!-- </div> -->
 
 <%- include('../partials/_footer') %>

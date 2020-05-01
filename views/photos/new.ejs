@@ -1,20 +1,20 @@
 <%- include('../partials/_head') %>
 <main class="dark-theme container">
+  <!--Title-->
   <div class="view-title">
     <h2>Add a New Photo</h2>
-    <!--cancel button-->
+    <!--Cancel Link-->
     <div>
       <a href="/albums/<%= albumId %>">Cancel</a>
     </div>
   </div>
+  <!--New Inputs-->
   <div class="row align-items-center justify-content-center">
     <div class="col-sm-6">
-      <!--New Inputs-->
       <!--enctype form-->
       <form action="/albums/<%= albumId %>/photos" enctype="multipart/form-data" method="POST">
         <!--File Upload-->
         <div class="form-group">
-          <!--TODO: allow only one upload option-->
           <label for="image">Upload a Picture</label>
           <br/>
           <input type="file" name="image">
@@ -43,11 +43,11 @@
           <br/>
           <textarea class="form-control" name="description" id="description" cols="30" rows="5" ></textarea>
         </div>
+        <!--Buttons-->
         <div class="button-group">
           <!--Submit-->
           <button type="submit" id="newPhotoButton">Submit</button>
-        </form>
-  
+      </form>
         </div>
     </div>
   </div>

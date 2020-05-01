@@ -4,30 +4,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  <!--Bootstrap CSS-->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
   integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
    crossorigin="anonymous">
-   <link rel="stylesheet" href="/css/style.css"/>
-   <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
-
-
+   <!--Custom CSS-->
+  <link rel="stylesheet" href="/css/style.css"/>
+  <!--Google Font-->
+  <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+  <!--Title-->
   <title>Imagerie |
     <%= title %>
   </title>
+  <!--Favicon-->
    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
-
 </head>
 
 <body>
-
 <main class="auth-form">
-  <!-- nav -->
-
+  <!-- Bootstrap Navbar -->
   <div class="container-fluid banner banner-home fixed-top">
     <div class="row">
       <div class="col-md-12">
-
+        <!--Responsive Navbar-->
         <nav class="navbar navbar-expand-md navbar-md ">
           <div class="navbar-brand"><a href="/">Imagerie</a></div>
           <!--Hamburger Menu Button-->
@@ -50,34 +49,31 @@
     </div>
   </div>
 
-<% if (typeof error !== 'undefined') { %>
-  <div class="error-message">
-   <h3><%= error %></h3> 
+  <!--Display Error-->
+  <% if (typeof error !== 'undefined') { %>
+    <div class="error-message">
+    <h3><%= error %></h3> 
+    </div>
+  <%}%>
+
+  <!-- start of our form -->
+  <div class="dark-theme login-box">
+    <h1> Login</h1>
+    <!--Inputs-->
+    <form action="/auth/login" method="POST">
+      <!--Username-->
+      <div class="textbox">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" class="usernme"/>
+      </div>
+      <!--Password-->
+      <div class="textbox">
+        <label for="Password">Password</label>
+        <input type="password" id="password" name="password" class="password"/>
+      </div>
+      <!--Submit Button-->
+      <input type="submit" value="Login" />
+    </form>
   </div>
-
-<%}%>
-<div class="que">
-<!-- start of our form -->
-<div class="dark-theme login-box">
-  <h1> Login</h1>
-
-  <form action="/auth/login" method="POST">
-    <div class="textbox">
-      <label for="username">Username</label>
-      
-      <input type="text" id="username" name="username" class="usernme"/>
-    </div>
-
-    <div class="textbox">
-      <label for="Password">Password</label>
-  
-      <input type="password" id="password" name="password" class="password"/>
-    </div>
-
-    <input type="submit" value="Login" />
-  <!-- </form> -->
-</div>
-<div class="overlay"></div>
-</div>
 </main>
 <%- include('../partials/_footer') %>

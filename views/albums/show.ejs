@@ -39,16 +39,15 @@
   </div>
   <!--Show Photo thumbnails-->
   <div class="container">
-  <div class="album-card-group">
-    <% albumPhotos.forEach((albumPhoto) => { %>
-      <div class="card h-100" style="width: 300px;">
-        <a href="/albums/<%= album._id %>/photos/<%= albumPhoto._id %>">
-        <img class="card-img" src="<%= albumPhoto.url %>" alt=""/>
-      </a>
-      </div>
-    <% }) %>
-  </div>
-
+    <div class="album-card-group">
+      <% albumPhotos.forEach((albumPhoto) => { %>
+        <div class="card h-100" style="width: 300px;">
+          <a href="/albums/<%= album._id %>/photos/<%= albumPhoto._id %>">
+          <img class="card-img" src="<%= albumPhoto.url %>" alt=""/>
+        </a>
+        </div>
+      <% }) %>
+    </div>
   </div>
 </main>
 <%- include('../partials/_footer') %>
