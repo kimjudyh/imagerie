@@ -130,6 +130,13 @@ footer {
   justify-content: space-evenly;
 }
 
+.album-properties-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 /* New Photo */
 @keyframes loading {
   0% {color: #F1F1F1DE;}
@@ -291,6 +298,18 @@ button:focus {
     position: absolute;
     left:0%;
 
+  }
+
+  .navbar {
+    padding: 0;
+  }
+
+  .navbar-brand {
+    margin: 0;
+  }
+
+  .navbar-toggler {
+    margin: 0;
   }
 
   .banner .nav {
