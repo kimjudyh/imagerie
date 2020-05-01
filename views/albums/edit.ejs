@@ -1,7 +1,11 @@
 <%- include('../partials/_head') %>
 <main class="dark-theme container">
   <div class="view-title">
-    <h1>Edit Album</h1>
+    <h2>Edit Album</h2>
+    <!--Cancel button-->
+    <div>
+      <a href="/albums">Cancel</a>
+    </div>
   </div>
   <div class="row">
     <div class="col-md">
@@ -49,8 +53,6 @@
         <button class="delete" type="submit">Delete Album</button>
       </form>
     </div>
-    <!--Cancel button-->
-    <a href="/albums"><button>Cancel</button></a>
   </div>
   <!--Display Photos-->
   <div class="album-card-group">

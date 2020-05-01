@@ -60,25 +60,19 @@ router.post('/:albumid/photos', multipartMiddleware, async (req, res) => {
       return res.redirect('/auth/login');
     };
 
-    console.log('req.body', req.body)
-    
     // Cloudinary part
     let result;
     if (!req.body.url) {
       // if file was uploaded instead of url
-      console.log('req.files path', req.files.image.path);
       // send temp file storage path to cloudinary, receive URL
       result = await cloudinary.v2.uploader.upload(req.files.image.path);
-      console.log('result', result.secure_url);
       // save URL to req.body
       req.body.url = result.secure_url;
       req.body.cloudinaryPublicId = result.public_id;
     }
 
     // make new photo in db
-    console.log('req.body from form, ', req.body);
     const newPhoto = await db.Photo.create(req.body);
-    console.log('new photo object', newPhoto);
 
     // redirect back to album edit view
     res.redirect(`/albums/${req.params.albumid}/edit`);
@@ -86,12 +80,10 @@ router.post('/:albumid/photos', multipartMiddleware, async (req, res) => {
     // add album id to Photo model
     newPhoto.album = req.params.albumid;
     const savedPhoto = await newPhoto.save();
-    console.log('saved photo', savedPhoto);
 
     // add photo id to Album photo id array 
     const foundAlbum = await db.Album.findById(req.params.albumid);
     foundAlbum.photos.push(savedPhoto._id);
-    console.log('album photo id array', foundAlbum.photos);
     const savedAlbum = await foundAlbum.save();
 
 
@@ -113,7 +105,6 @@ router.get('/:albumid/photos/:id', async (req, res) => {
     if (!req.session.currentUser) {
       return res.redirect('/auth/login');
     };
-    console.log(req.params.id)
     // get specific photo from db
     const foundPhoto = await db.Photo.findById(req.params.id);
     // get album that contains this photo from db
@@ -147,7 +138,6 @@ router.get('/:albumid/photos/:id/edit', async (req, res) => {
     const foundPhoto = await db.Photo.findById(req.params.id);
 
     // format date to match input type="date": yyyy-mm-dd
-    console.log('photo.date: ', foundPhoto.date);
     let photoDateString = '';
     if (foundPhoto.date) {
       // date has been defined by user
@@ -200,7 +190,6 @@ router.delete('/:albumid/photos/:id', async (req, res) => {
     };
     // delete photo object
     const deletedPhoto = await db.Photo.findByIdAndDelete(req.params.id);
-    console.log('deleted photo', deletedPhoto);
     // remove photo id from albums photos array
     const foundAlbum = await db.Album.findById(req.params.albumid);
     const deletedPhotoIndex = foundAlbum.photos.pull({_id: req.params.id});
@@ -211,10 +200,8 @@ router.delete('/:albumid/photos/:id', async (req, res) => {
         console.log(err);
       }
     });
-    // TODO: if user deleted from album edit, redirect there
-    // redirect to album that photo was in
-    console.log(req.url);
-    res.redirect(`/albums/${req.params.albumid}`);
+    // redirect to album edit view that photo was in
+    res.redirect(`/albums/${req.params.albumid}/edit`);
 
   } catch (err) {
     res.send(err);
