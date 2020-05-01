@@ -19,8 +19,8 @@ Imagerie is responsive to mobile screen sizes:
 
 ## Scope
 In this project, we fulfilled all core requirements. Our website has:
-- Full CRUD on 3 linked database models defined by Mongoose schema
-- 7 RESTful routes for each model
+- Full CRUD on 2 of the 3 linked database models defined by Mongoose schema
+- 7 RESTful routes for 2 models
 - User authentication and authorization using sessions and bcrypt 
 - Front-end data validation
 - Templating using the EJS view engine
