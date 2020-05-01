@@ -9,7 +9,7 @@ The photo view page:
 
 Imagerie is responsive to mobile screen sizes: 
 
-<img src="./public/img/readme/mobile_profile.jpg" height=300><img src="./public/img/readme/mobile_album_view.jpg" height=300><img src="./public/img/readme/mobile_photo_show.jpg" height=300>
+<img src="./public/img/readme/mobile_profile.jpg" height=350> <img src="./public/img/readme/mobile_album_view.jpg" height=350> <img src="./public/img/readme/mobile_photo_show.jpg" height=350>
 
 ## Scope
 ### MVP
